@@ -2,128 +2,114 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using WebHamburgueria.Models;
-using WebHamburgueria.Viewmodel;
 
-namespace WebHamburgueria.Controllers
+namespace WebHamburgueria.Models
 {
-    public class ProdutoController : Controller
+    public class UsuarioController : Controller
     {
         private dbhamburgueriaEntities db = new dbhamburgueriaEntities();
 
-        // GET: Produto
+        // GET: Usuario
         public ActionResult Index()
         {
-            return View(db.Produto.ToList());
+            return View(db.Usuario.ToList());
         }
 
-        // GET: Produto/Details/5
+        // GET: Usuario/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
-            if (produto == null)
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(usuario);
         }
 
-        // GET: Produto/Create
+        // GET: Usuario/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Produto/Create
+        // POST: Usuario/Create
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ProdutoViewModel produtofoto)
+        public ActionResult Create([Bind(Include = "Id,NomeCompleto,NomeUsuario,Email,Cpf,Telefone,Nascimento,Genero,Endereco,Pontos,Senha,Convidado,NomeHost")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                var produto = new Produto();
-
-                //lemos a imagem e a seguir os bytes armazenados
-                using (var binaryReader = new BinaryReader(produtofoto.ImageUpload.InputStream))
-                    produto.Foto = binaryReader.ReadBytes(produtofoto.ImageUpload.ContentLength);
-
-                produto.Descricao = produtofoto.Descricao;
-                produto.Tipo= produtofoto.Tipo;
-                produto.Preco = produtofoto.Preco;
-                produto.Nome = produtofoto.Nome;
-
-                db.Produto.Add(produto);
+                db.Usuario.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(produtofoto);
+            return View(usuario);
         }
 
-        // GET: Produto/Edit/5
+        // GET: Usuario/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
-            if (produto == null)
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(usuario);
         }
 
-        // POST: Produto/Edit/5
+        // POST: Usuario/Edit/5
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Preco,Descricao,Ingredientes,Foto,Tipo")] Produto produto)
+        public ActionResult Edit([Bind(Include = "Id,NomeCompleto,NomeUsuario,Email,Cpf,Telefone,Nascimento,Genero,Endereco,Pontos,Senha,Convidado,NomeHost")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(produto).State = EntityState.Modified;
+                db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(produto);
+            return View(usuario);
         }
 
-        // GET: Produto/Delete/5
+        // GET: Usuario/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
-            if (produto == null)
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(usuario);
         }
 
-        // POST: Produto/Delete/5
-       // [HttpPost, ActionName("Delete")]
+        // POST: Usuario/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Produto produto = db.Produto.Find(id);
-            db.Produto.Remove(produto);
+            Usuario usuario = db.Usuario.Find(id);
+            db.Usuario.Remove(usuario);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

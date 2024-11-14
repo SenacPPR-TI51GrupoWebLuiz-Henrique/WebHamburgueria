@@ -2,128 +2,115 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebHamburgueria.Models;
-using WebHamburgueria.Viewmodel;
 
 namespace WebHamburgueria.Controllers
 {
-    public class ProdutoController : Controller
+    public class PedidoController : Controller
     {
         private dbhamburgueriaEntities db = new dbhamburgueriaEntities();
 
-        // GET: Produto
+        // GET: Pedido
         public ActionResult Index()
         {
-            return View(db.Produto.ToList());
+            return View(db.Pedido.ToList());
         }
 
-        // GET: Produto/Details/5
+        // GET: Pedido/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
-            if (produto == null)
+            Pedido pedido = db.Pedido.Find(id);
+            if (pedido == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(pedido);
         }
 
-        // GET: Produto/Create
+        // GET: Pedido/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Produto/Create
+        // POST: Pedido/Create
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ProdutoViewModel produtofoto)
+        public ActionResult Create([Bind(Include = "Id,CpfUsuario,MetPag,Status,Total,DataPedido")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
-                var produto = new Produto();
-
-                //lemos a imagem e a seguir os bytes armazenados
-                using (var binaryReader = new BinaryReader(produtofoto.ImageUpload.InputStream))
-                    produto.Foto = binaryReader.ReadBytes(produtofoto.ImageUpload.ContentLength);
-
-                produto.Descricao = produtofoto.Descricao;
-                produto.Tipo= produtofoto.Tipo;
-                produto.Preco = produtofoto.Preco;
-                produto.Nome = produtofoto.Nome;
-
-                db.Produto.Add(produto);
+                db.Pedido.Add(pedido);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(produtofoto);
+            return View(pedido);
         }
 
-        // GET: Produto/Edit/5
+        // GET: Pedido/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
-            if (produto == null)
+            Pedido pedido = db.Pedido.Find(id);
+            if (pedido == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(pedido);
         }
 
-        // POST: Produto/Edit/5
+        // POST: Pedido/Edit/5
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Preco,Descricao,Ingredientes,Foto,Tipo")] Produto produto)
+        public ActionResult Edit([Bind(Include = "Id,CpfUsuario,MetPag,Status,Total,DataPedido")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(produto).State = EntityState.Modified;
+                db.Entry(pedido).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(produto);
+            return View(pedido);
         }
 
-        // GET: Produto/Delete/5
+        // GET: Pedido/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
-            if (produto == null)
+            Pedido pedido = db.Pedido.Find(id);
+            if (pedido == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(pedido);
         }
 
-        // POST: Produto/Delete/5
-       // [HttpPost, ActionName("Delete")]
+        // POST: Pedido/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Produto produto = db.Produto.Find(id);
-            db.Produto.Remove(produto);
+            Pedido pedido = db.Pedido.Find(id);
+            db.Pedido.Remove(pedido);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
