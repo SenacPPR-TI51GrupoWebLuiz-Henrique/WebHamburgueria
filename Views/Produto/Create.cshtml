@@ -54,24 +54,16 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Tipo
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Lanche</a></li>
-                <li><a class="dropdown-item" href="#">Bebida</a></li>
-                <li><a class="dropdown-item" href="#">Acompanhamento</a></li>
-            </ul>
-        </div>
         @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
-
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
-        </div>
+        @Html.DropDownListFor(model => model.Tipo,
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Lanche", Value = "L" },
+                    new SelectListItem { Text = "Bebida", Value = "B" },
+                    new SelectListItem { Text = "Acompanhamento", Value = "A" }
+                }, new { @class = "btn btn-secondary dropdown-toggle", @type = "button" })
+        @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "dropdown-menu" })
     </div>
-
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-default" />
