@@ -92,6 +92,26 @@
 <br />
 <br />
 
+<script>
+    function updateImagePreview(input) {
+        const imgPreview = document.getElementById('produto-imagem');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                imgPreview.src = e.target.result; // Atualiza a fonte da imagem
+                imgPreview.style.display = 'block'; // Mostra a imagem caso esteja oculta
+            };
+
+            reader.readAsDataURL(input.files[0]); // Converte a imagem para Base64
+        } else {
+            imgPreview.src = "#";
+            imgPreview.style.display = 'none'; // Oculta a imagem caso nenhum arquivo seja selecionado
+        }
+    }
+</script>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
