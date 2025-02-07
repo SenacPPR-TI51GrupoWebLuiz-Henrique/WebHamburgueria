@@ -10,12 +10,15 @@
 namespace WebHamburgueria.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class Produto
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        [DataType(DataType.Currency)]
         public decimal Preco { get; set; }
         public string Descricao { get; set; }
         public string Ingredientes { get; set; }

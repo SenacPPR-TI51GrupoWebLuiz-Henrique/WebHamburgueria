@@ -58,10 +58,11 @@ namespace WebHamburgueria.Controllers
                 using (var binaryReader = new BinaryReader(produtofoto.ImageUpload.InputStream))
                     produto.Foto = binaryReader.ReadBytes(produtofoto.ImageUpload.ContentLength);
 
-                produto.Descricao = produtofoto.Descricao;
-                produto.Tipo= produtofoto.Tipo;
-                produto.Preco = produtofoto.Preco;
                 produto.Nome = produtofoto.Nome;
+                produto.Preco = produtofoto.Preco;
+                produto.Descricao = produtofoto.Descricao;
+                produto.Ingredientes = produtofoto.Ingredientes;
+                produto.Tipo = produtofoto.Tipo;
 
                 db.Produto.Add(produto);
                 db.SaveChanges();
@@ -79,11 +80,20 @@ namespace WebHamburgueria.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Produto produto = db.Produto.Find(id);
-            if (produto == null)
+            ProdutoViewModel produtoFoto = new ProdutoViewModel();
+
+            produtoFoto.Id = produto.Id;
+            produtoFoto.Nome = produto.Nome;
+            produtoFoto.Descricao = produto.Descricao;
+            produtoFoto.Preco = produto.Preco;
+            produtoFoto.Ingredientes = produto.Ingredientes;
+            produtoFoto.Foto = produto.Foto;
+
+            if (produtoFoto == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(produtoFoto);
         }
 
         // POST: Produto/Edit/5
@@ -91,15 +101,31 @@ namespace WebHamburgueria.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Preco,Descricao,Ingredientes,Foto,Tipo")] Produto produto)
+        public ActionResult Edit(ProdutoViewModel produtofoto)
         {
+            var produto = db.Produto.Find(produtofoto.Id);
+
+            produto.Nome = produtofoto.Nome;
+            produto.Preco = produtofoto.Preco;
+            produto.Descricao = produtofoto.Descricao;
+            produto.Ingredientes = produtofoto.Ingredientes;
+
+            if (produtofoto.ImageUpload != null)
+            {
+                //lemos a imagem e a seguir os bytes armazenados
+                using (var binaryReader = new BinaryReader(produtofoto.ImageUpload.InputStream))
+                    produto.Foto = binaryReader.ReadBytes(produtofoto.ImageUpload.ContentLength);
+            }
+
+            produto.Tipo = produtofoto.Tipo;
+
             if (ModelState.IsValid)
             {
                 db.Entry(produto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(produto);
+            return View(produtofoto);
         }
 
         // GET: Produto/Delete/5
@@ -118,7 +144,7 @@ namespace WebHamburgueria.Controllers
         }
 
         // POST: Produto/Delete/5
-       // [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

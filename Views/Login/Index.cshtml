@@ -2,47 +2,58 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "";
 }
 
-<h2>Painel de Administração Code & C#eese Web</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
+    <link href="~/Content/bootswatch/morph/bootstrap.min.css" rel="stylesheet" />
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Entre com login e senha de administrador.</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+</head>
+<body @*data-bs-theme="dark"*@>
+    <h2>Painel de Administração Code & C#eese</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <section class="vh-100">
+            <div class="container h-100 d-flex align-items-center justify-content-center">
+                <div class="card p-4 shadow" style="max-width: 400px; border: none; border-radius: 1rem;">
+                    <div class="card-body">
+                        <h3 class="card-title text-center mb-4">Admin Login</h3>
+                        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                        {
+                            <div class="mb-3">
+                                @Html.LabelFor(model => model.Login, new { @class = "form-label" })
+                                @Html.TextBoxFor(model => model.Login, new { @class = "form-control", placeholder = "Digite seu login" })
+                                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="mb-3">
+                                @Html.LabelFor(model => model.Password, new { @class = "form-label" })
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Digite sua senha" })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-outline-primary">Entrar</button>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Entrar" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        </section>
+    }
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jquery")
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    }
+</body>
+</html>

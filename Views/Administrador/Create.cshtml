@@ -44,13 +44,13 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-outline-primary" />
             </div>
         </div>
     </div>
 }
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-secondary" })
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -179,12 +179,69 @@
     <Compile Include="ViewModels\ProdutoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\bootswatch\cerulean\bootstrap.css" />
+    <Content Include="Content\bootswatch\cerulean\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\cosmo\bootstrap.css" />
+    <Content Include="Content\bootswatch\cosmo\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\cyborg\bootstrap.css" />
+    <Content Include="Content\bootswatch\cyborg\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\darkly\bootstrap.css" />
+    <Content Include="Content\bootswatch\darkly\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\flatly\bootstrap.css" />
+    <Content Include="Content\bootswatch\flatly\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\journal\bootstrap.css" />
+    <Content Include="Content\bootswatch\journal\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\litera\bootstrap.css" />
+    <Content Include="Content\bootswatch\litera\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\lumen\bootstrap.css" />
+    <Content Include="Content\bootswatch\lumen\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\lux\bootstrap.css" />
+    <Content Include="Content\bootswatch\lux\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\materia\bootstrap.css" />
+    <Content Include="Content\bootswatch\materia\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\minty\bootstrap.css" />
+    <Content Include="Content\bootswatch\minty\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\morph\bootstrap.css" />
+    <Content Include="Content\bootswatch\morph\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\morph\bootstrap.rtl.css" />
+    <Content Include="Content\bootswatch\morph\bootstrap.rtl.min.css" />
+    <Content Include="Content\bootswatch\pulse\bootstrap.css" />
+    <Content Include="Content\bootswatch\pulse\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\sandstone\bootstrap.css" />
+    <Content Include="Content\bootswatch\sandstone\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\simplex\bootstrap.css" />
+    <Content Include="Content\bootswatch\simplex\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\sketchy\bootstrap.css" />
+    <Content Include="Content\bootswatch\sketchy\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\slate\bootstrap.css" />
+    <Content Include="Content\bootswatch\slate\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\solar\bootstrap.css" />
+    <Content Include="Content\bootswatch\solar\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\spacelab\bootstrap.css" />
+    <Content Include="Content\bootswatch\spacelab\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\superhero\bootstrap.css" />
+    <Content Include="Content\bootswatch\superhero\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\united\bootstrap.css" />
+    <Content Include="Content\bootswatch\united\bootstrap.min.css" />
+    <Content Include="Content\bootswatch\yeti\bootstrap.css" />
+    <Content Include="Content\bootswatch\yeti\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\Model1.Context.tt">
@@ -197,8 +254,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -206,6 +261,79 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="libman.json" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootswatch\yeti\_variables.scss" />
+    <Content Include="Content\bootswatch\yeti\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\united\_variables.scss" />
+    <Content Include="Content\bootswatch\united\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\superhero\_variables.scss" />
+    <Content Include="Content\bootswatch\superhero\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\spacelab\_variables.scss" />
+    <Content Include="Content\bootswatch\spacelab\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\solar\_variables.scss" />
+    <Content Include="Content\bootswatch\solar\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\slate\_variables.scss" />
+    <Content Include="Content\bootswatch\slate\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\sketchy\_variables.scss" />
+    <Content Include="Content\bootswatch\sketchy\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\simplex\_variables.scss" />
+    <Content Include="Content\bootswatch\simplex\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\sandstone\_variables.scss" />
+    <Content Include="Content\bootswatch\sandstone\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\pulse\_variables.scss" />
+    <Content Include="Content\bootswatch\pulse\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\minty\_variables.scss" />
+    <Content Include="Content\bootswatch\minty\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\materia\_variables.scss" />
+    <Content Include="Content\bootswatch\materia\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\lux\_variables.scss" />
+    <Content Include="Content\bootswatch\lux\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\lumen\_variables.scss" />
+    <Content Include="Content\bootswatch\lumen\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\litera\_variables.scss" />
+    <Content Include="Content\bootswatch\litera\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\journal\_variables.scss" />
+    <Content Include="Content\bootswatch\journal\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\flatly\_variables.scss" />
+    <Content Include="Content\bootswatch\flatly\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\darkly\_variables.scss" />
+    <Content Include="Content\bootswatch\darkly\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\cyborg\_variables.scss" />
+    <Content Include="Content\bootswatch\cyborg\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\cosmo\_variables.scss" />
+    <Content Include="Content\bootswatch\cosmo\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\cerulean\_variables.scss" />
+    <Content Include="Content\bootswatch\cerulean\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\morph\_bootswatch.scss" />
+    <Content Include="Content\bootswatch\morph\_variables.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -234,7 +362,6 @@
     <Content Include="Views\Produto\Create.cshtml" />
     <Content Include="Views\Produto\Delete.cshtml" />
     <Content Include="Views\Produto\Details.cshtml" />
-    <Content Include="Views\Produto\Edit.cshtml" />
     <Content Include="Views\Produto\Index.cshtml" />
     <Content Include="Views\Pedido\Create.cshtml" />
     <Content Include="Views\Pedido\Delete.cshtml" />
@@ -252,20 +379,13 @@
     <Content Include="Views\Administrador\Edit.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Produto\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
@@ -291,7 +411,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52938</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44352/</IISUrl>
+          <IISUrl>http://localhost:44352/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
