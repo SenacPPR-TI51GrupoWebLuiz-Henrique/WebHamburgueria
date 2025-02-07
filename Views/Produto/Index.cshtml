@@ -52,7 +52,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Ingredientes)
         </td>
-        @if (item.Foto != null)
+        @if (item.Foto != null && item.Foto.Length > 0)
         {
             <td>
                 @{
