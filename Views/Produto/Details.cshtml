@@ -1,66 +1,63 @@
 ﻿@model WebHamburgueria.Models.Produto
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes do Produto";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Produto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Preco)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Preco)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ingredientes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ingredientes)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Foto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Foto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tipo)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<section class="vh-100" style="background: url('https://cdn.pixabay.com/photo/2015/06/24/15/45/burger-820876_1280.jpg') no-repeat center center; background-size: cover; min-height: 125vh;">
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+        <div class="card shadow-lg" style="width: 650px; border-radius: 1rem; background-color: rgba(255,255,255,0.95);">
+            <!-- Cabeçalho do Card -->
+            <div class="card-header bg-primary text-white text-center">
+                <h3 class="card-title mb-0">Detalhes do Produto</h3>
+            </div>
+            <!-- Corpo do Card -->
+            <div class="card-body p-5">
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Id): </strong>
+                    <span>@Html.DisplayFor(model => model.Id)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Nome): </strong>
+                    <span>@Html.DisplayFor(model => model.Nome)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Preco): </strong>
+                    <span>@Html.DisplayFor(model => model.Preco)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Descricao): </strong>
+                    <span>@Html.DisplayFor(model => model.Descricao)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Ingredientes): </strong>
+                    <span>@Html.DisplayFor(model => model.Ingredientes)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Foto): </strong>
+                    <div>
+                        @if (Model.Foto != null && Model.Foto.Length > 0)
+                        {
+                            var base64 = Convert.ToBase64String(Model.Foto);
+                            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            <img src="@imgSrc" class="img-fluid rounded" style="max-width: 500px; max-height: 200px;" />
+                        }
+                        else
+                        {
+                            <p>Sem Imagem</p>
+                        }
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Tipo): </strong>
+                    <span>@Html.DisplayFor(model => model.Tipo)</span>
+                </div>
+            </div>
+            <!-- Rodapé do Card -->
+            <div class="card-footer text-center">
+                <a href="@Url.Action("Edit", "Produto", new { id = Model.Id })" class="btn btn-outline-primary me-2">Editar</a>
+                <a href="@Url.Action("Index", "Produto")" class="btn btn-outline-secondary">Voltar para Lista</a>
+            </div>
+        </div>
+    </div>
+</section>

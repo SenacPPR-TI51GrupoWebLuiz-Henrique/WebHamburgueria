@@ -4,54 +4,60 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Usuários</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar Novo", "Create", null, new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NomeCompleto)
+            @Html.DisplayName("ID")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NomeUsuario)
+            @Html.DisplayName("Nome")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayName("Usuário")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cpf)
+            @Html.DisplayName("Email")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Telefone)
+            @Html.DisplayName("CPF")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nascimento)
+            @Html.DisplayName("Telefone")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Genero)
+            @Html.DisplayName("Nascimento")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Endereco)
+            @Html.DisplayName("Gênero")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Pontos)
+            @Html.DisplayName("Endereco")
         </th>
         <th>
+            @Html.DisplayName("Pontos")
+        </th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Senha)
-        </th>
+        </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.Convidado)
+            @Html.DisplayName("Convidado")
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.NomeHost)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.NomeCompleto)
         </td>
@@ -79,19 +85,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.Pontos)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Senha)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Convidado)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.NomeHost)
-        </td>
+        </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Deletar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

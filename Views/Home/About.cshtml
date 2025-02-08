@@ -1,7 +1,51 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Sobre Nós";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<!-- Hero Section com fundo impactante -->
+<section class="d-flex align-items-center" style="background: url('https://cdn.pixabay.com/photo/2016/11/29/03/53/architecture-1868661_1280.jpg') no-repeat center center; background-size: cover; height: 95vh">
+    <div class="container text-white">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h1 class="display-4 fw-bold">Sobre Nós</h1>
+                <p class="lead">Transformamos ideias em soluções digitais inovadoras.</p>
+                <a href="@Url.Action("Contact", "Home")" class="btn btn-outline-light btn-lg mt-3">Fale Conosco</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Seção Informativa com Cartões -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <!-- Cartão: Nossa História -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Nossa História</h5>
+                        <p class="card-text">Fundada em [Ano], nossa empresa tem crescido ao oferecer soluções web sob medida, sempre inovando e buscando a excelência.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Cartão: Nossa Missão -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Nossa Missão</h5>
+                        <p class="card-text">Fornecer tecnologias de ponta que ajudem nossos clientes a alcançar seus objetivos com eficiência e criatividade.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Cartão: Nossos Valores -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Nossos Valores</h5>
+                        <p class="card-text">Valorizamos a inovação, transparência e qualidade, mantendo sempre um relacionamento próximo com nossos clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
