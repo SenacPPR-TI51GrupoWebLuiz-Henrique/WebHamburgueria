@@ -1,17 +1,50 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contato";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<!-- Seção de contato com fundo impactante -->
+<section class="vh-100 d-flex align-items-center" style="background: url('https://cdn.pixabay.com/photo/2017/08/10/07/32/office-2615942_1280.jpg') no-repeat center center; background-size: cover; min-height: 150vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <!-- Card para o formulário de contato -->
+                <div class="card shadow-lg" style="border-radius: 1rem; background-color: rgba(255,255,255,0.95);">
+                    <div class="card-body p-5">
+                        <h3 class="text-center mb-4">Fale Conosco</h3>
+                        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+                            <div class="form-group mb-3">
+                                @Html.Label("Nome", new { @class = "form-label" })
+                                @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Seu nome completo" })
+                            </div>
+                            <div class="form-group mb-3">
+                                @Html.Label("Email", new { @class = "form-label" })
+                                @Html.TextBox("Email", null, new { @class = "form-control", placeholder = "Seu email" })
+                            </div>
+                            <div class="form-group mb-3">
+                                @Html.Label("Assunto", new { @class = "form-label" })
+                                @Html.TextBox("Subject", null, new { @class = "form-control", placeholder = "Assunto da mensagem" })
+                            </div>
+                            <div class="form-group mb-4">
+                                @Html.Label("Mensagem", new { @class = "form-label" })
+                                @Html.TextArea("Message", null, new { @class = "form-control", rows = "5", placeholder = "Escreva sua mensagem..." })
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Enviar Mensagem</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <!-- Seção de redes sociais -->
+                <div class="text-center mt-4">
+                    <p class="mb-2">Ou entre em contato pelas redes sociais:</p>
+                    <a href="#" class="btn btn-outline-primary me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-outline-info me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-outline-danger"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

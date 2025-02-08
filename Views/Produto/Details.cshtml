@@ -4,14 +4,7 @@
     ViewBag.Title = "Detalhes do Produto";
 }
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-
-<section class="vh-100" style="background: url('https://cdn.pixabay.com/photo/2015/06/24/15/45/burger-820876_1280.jpg') no-repeat center center; background-size: cover;">
+<section class="vh-100" style="background: url('https://cdn.pixabay.com/photo/2015/06/24/15/45/burger-820876_1280.jpg') no-repeat center center; background-size: cover; min-height: 125vh;">
     <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="card shadow-lg" style="width: 650px; border-radius: 1rem; background-color: rgba(255,255,255,0.95);">
             <!-- Cabeçalho do Card -->
@@ -47,7 +40,7 @@
                         {
                             var base64 = Convert.ToBase64String(Model.Foto);
                             var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-                            <img src="@imgSrc" class="img-fluid rounded" style="max-width: 100%; height: auto;" />
+                            <img src="@imgSrc" class="img-fluid rounded" style="max-width: 500px; max-height: 200px;" />
                         }
                         else
                         {
@@ -68,10 +61,3 @@
         </div>
     </div>
 </section>
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />

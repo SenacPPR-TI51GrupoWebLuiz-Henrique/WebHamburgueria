@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<div class="container my-5">
+<div class="container my-5" style="min-height: 67.9vh;">
     <!-- Cabeçalho com título e botão "Criar Novo" -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold">Produtos</h2>
-        @Html.ActionLink("Criar Novo", "Create", null, new { @class = "btn btn-outline-success" })
+        @Html.ActionLink("Criar Novo", "Create", null, new { @class = "btn btn-outline-primary" })
     </div>
 
     <!-- Card que envolve a tabela -->
@@ -52,9 +52,9 @@
                             }
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Tipo)</td>
                             <td class="align-middle" style="text-align: center;">
-                                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-outline-info btn-sm me-1" })
-                                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-outline-warning btn-sm me-1" })
-                                @Html.ActionLink("Deletar", "Delete", new { id = item.Id }, new { @class = "btn btn-outline-danger btn-sm" })
+                                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-info btn-sm me-1" })
+                                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm me-1" })
+                                @Html.ActionLink("Deletar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
                             </td>
                         </tr>
                     }

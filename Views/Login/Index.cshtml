@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -18,12 +19,10 @@
 
 </head>
 <body @*data-bs-theme="dark"*@>
-    <h2>Painel de Administração Code & C#eese</h2>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-
-        <section class="vh-100">
+        <section class="vh-100" style="min-height: 100vh;">
             <div class="container h-100 d-flex align-items-center justify-content-center">
                 <div class="card p-4 shadow" style="max-width: 400px; border: none; border-radius: 1rem;">
                     <div class="card-body">
@@ -48,6 +47,37 @@
                 </div>
             </div>
         </section>
+        <footer class="bg-light fixed-bottom text-dark pt-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Créditos e Direitos -->
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p class="mb-1">
+                            Feito por
+                            <a href="https://github.com/Lu1zH3nr1qu3DA" target="_blank" class="text-decoration-underline">Luiz H. D. Alecrim</a>
+                            e
+                            <a href="https://www.instagram.com/ricksf3?igsh=ZHlwdWdkYTExeGgx" target="_blank" class="text-decoration-underline">Henrique de Souza Fontes</a>.
+                        </p>
+                        <p class="mb-0">&copy; @DateTime.Now.Year. Todos os direitos reservados.</p>
+                    </div>
+                    <!-- Ícones de Redes Sociais (opcional) -->
+                    <!--<div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="text-white me-3">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white me-3">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white me-3">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>-->
+                </div>
+            </div>
+        </footer>
     }
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")

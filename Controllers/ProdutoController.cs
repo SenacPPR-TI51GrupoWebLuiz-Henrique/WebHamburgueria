@@ -54,10 +54,12 @@ namespace WebHamburgueria.Controllers
             {
                 var produto = new Produto();
 
-                //lemos a imagem e a seguir os bytes armazenados
-                using (var binaryReader = new BinaryReader(produtofoto.ImageUpload.InputStream))
-                    produto.Foto = binaryReader.ReadBytes(produtofoto.ImageUpload.ContentLength);
-
+                if (produtofoto.ImageUpload != null)
+                {
+                    //lemos a imagem e a seguir os bytes armazenados
+                    using (var binaryReader = new BinaryReader(produtofoto.ImageUpload.InputStream))
+                        produto.Foto = binaryReader.ReadBytes(produtofoto.ImageUpload.ContentLength);
+                }
                 produto.Nome = produtofoto.Nome;
                 produto.Preco = produtofoto.Preco;
                 produto.Descricao = produtofoto.Descricao;
@@ -68,7 +70,6 @@ namespace WebHamburgueria.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(produtofoto);
         }
 

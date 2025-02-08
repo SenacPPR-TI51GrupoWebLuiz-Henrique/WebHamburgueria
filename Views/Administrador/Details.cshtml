@@ -1,50 +1,44 @@
 ﻿@model WebHamburgueria.Models.Administrador
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Informações do Administrador";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Administrador</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cpf)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cpf)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Login)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Login)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Senha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Senha)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<section class="vh-100" style="background: url('https://cdn.pixabay.com/photo/2015/06/24/15/45/burger-820876_1280.jpg') no-repeat center center; background-size: cover;">
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+        <div class="card shadow-lg" style="width: 650px; border-radius: 1rem; background-color: rgba(255,255,255,0.95);">
+            <!-- Cabeçalho do Card -->
+            <div class="card-header bg-primary text-white text-center">
+                <h3 class="card-title mb-0">Informações do Administrador</h3>
+            </div>
+            <!-- Corpo do Card -->
+            <div class="card-body p-5">
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Id): </strong>
+                    <span>@Html.DisplayFor(model => model.Id)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Nome): </strong>
+                    <span>@Html.DisplayFor(model => model.Nome)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Cpf): </strong>
+                    <span>@Html.DisplayFor(model => model.Cpf)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Login): </strong>
+                    <span>@Html.DisplayFor(model => model.Login)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Senha): </strong>
+                    <span>@Html.DisplayFor(model => model.Senha)</span>
+                </div>
+            </div>
+            <!-- Rodapé do Card -->
+            <div class="card-footer text-center">
+                <a href="@Url.Action("Edit", "Administrador", new { id = Model.Id })" class="btn btn-outline-primary me-2">Editar</a>
+                <a href="@Url.Action("Index", "Administrador")" class="btn btn-outline-secondary">Voltar para Lista</a>
+            </div>
+        </div>
+    </div>
+</section>
