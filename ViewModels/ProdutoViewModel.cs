@@ -17,7 +17,6 @@ namespace WebHamburgueria.Viewmodel
         public string Ingredientes { get; set; }
         public byte[] Foto { get; set; }
         public string Tipo { get; set; }
-
         
         [DataType(DataType.Upload)]
         [Display(Name = "Imagem")]

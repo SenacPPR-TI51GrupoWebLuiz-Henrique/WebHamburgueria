@@ -13,22 +13,19 @@ namespace WebHamburgueria.Models
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     using System.Web;
+    using System.Runtime.Serialization;
 
     public partial class Produto
     {
         public int Id { get; set; }
         public string Nome { get; set; }
         [DataType(DataType.Currency)]
+        [Display(Name = "Preço")]
         public decimal Preco { get; set; }
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
         public string Ingredientes { get; set; }
         public byte[] Foto { get; set; }
         public string Tipo { get; set; }
-
-        /*
-        [DataType(DataType.Upload)]
-        [Display(Name = "Imagem")]
-        public HttpPostedFileBase ImageUpload { get; set; }
-        */
     }
 }

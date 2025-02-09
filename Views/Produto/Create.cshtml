@@ -5,8 +5,8 @@
 }
 
 <!-- Seção com fundo (opcional: você pode definir uma cor ou imagem de fundo) -->
-<section class="vh-100" style="min-height: 175vh">
-    <div class="container h-100 d-flex justify-content-center align-items-center">
+<section style="padding-bottom: 1em;">
+    <div class="container d-flex justify-content-center align-items-center">
         <div class="card shadow-lg" style="width: 600px; border-radius: 1rem; background-color: rgba(255,255,255,0.9);">
             <div class="card-body p-5">
                 <h3 class="card-title text-center mb-4">Novo Produto</h3>
@@ -21,7 +21,8 @@
 
                     <div class="mb-3">
                         @Html.LabelFor(model => model.Preco, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.Preco, new { htmlAttributes = new { @class = "form-control", placeholder = "0,00" } })
+                        @Html.EditorFor(model => model.Preco, new { htmlAttributes = new { @class = "form-control", placeholder = "0.00" } })
+                        <small id="image-info" class="form-text text-muted">Utilize . como separador de centavos.</small>
                         @Html.ValidationMessageFor(model => model.Preco, "", new { @class = "text-danger" })
                     </div>
 
@@ -51,8 +52,8 @@
                                 new SelectListItem { Text = "Lanche", Value = "L" },
                                 new SelectListItem { Text = "Bebida", Value = "B" },
                                 new SelectListItem { Text = "Acompanhamento", Value = "A" }
-                            }, "Selecione o tipo", new { @class = "form-select" })
-                        @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+                            }, "Selecione", new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.Tipo, null, new { @class = "text-danger" })
                     </div>
 
                     <br />

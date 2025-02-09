@@ -94,6 +94,9 @@ namespace WebHamburgueria.Controllers
             {
                 return HttpNotFound();
             }
+
+            produtoFoto.Tipo = produto.Tipo;
+
             return View(produtoFoto);
         }
 
