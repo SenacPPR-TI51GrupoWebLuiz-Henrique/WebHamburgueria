@@ -34,8 +34,20 @@
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Id)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Nome)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Preco)</td>
-                            <td class="align-middle">@Html.DisplayFor(modelItem => item.Descricao)</td>
-                            <td class="align-middle">@Html.DisplayFor(modelItem => item.Ingredientes)</td>
+                            <td class="align-middle">
+                                @(string.IsNullOrEmpty(item.Descricao)
+                            ? ""
+                            : (item.Descricao.Length > 32
+                            ? item.Descricao.Substring(0, 32) + "..."
+                            : item.Descricao))
+                            </td>
+                            <td class="align-middle">
+                                @(string.IsNullOrEmpty(item.Ingredientes)
+                            ? ""
+                            : (item.Ingredientes.Length > 16
+                            ? item.Ingredientes.Substring(0, 16) + "..."
+                            : item.Ingredientes))
+                            </td>
                             @if (item.Foto != null && item.Foto.Length > 0)
                             {
                                 <td class="align-middle">
