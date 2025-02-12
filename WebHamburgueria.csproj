@@ -334,6 +334,7 @@
     <Content Include="Content\bootswatch\cerulean\_bootswatch.scss" />
     <Content Include="Content\bootswatch\morph\_bootswatch.scss" />
     <Content Include="Content\bootswatch\morph\_variables.scss" />
+    <Content Include="ConnectionStrings.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
