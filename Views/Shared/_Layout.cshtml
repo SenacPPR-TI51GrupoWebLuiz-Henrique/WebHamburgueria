@@ -39,6 +39,42 @@
                     <li class="nav-item">
                         @Html.ActionLink("Contato", "Contact", "Home", null, new { @class = "nav-link" })
                     </li>
+                    <li class="nav-item dropdown" data-bs-theme="light">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme">
+                            <i class="bi bi-circle-half"></i>
+                            <span class="d-lg-none ms-2">Toggle theme</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                    <i class="bi bi-sun-fill"></i><span class="ms-2">Light</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
+                                    <i class="bi bi-moon-stars-fill"></i><span class="ms-2">Dark</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme">
+                            <i class="bi bi-circle-half"></i>
+                            <span class="d-lg-none ms-2">Toggle theme</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                    <i class="bi bi-sun-fill"></i><span class="ms-2">Light</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
+                                    <i class="bi bi-moon-stars-fill"></i><span class="ms-2">Dark</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
                 <!-- Formulário de busca -->
                 <!--<form class="d-flex me-3">
@@ -65,7 +101,7 @@
         @RenderBody()
     </main>
 
-    <footer class="mt-auto bg-light text-dark" style="min-height: 5em; padding-top: 1em;">
+    <footer class="mt-auto" style="min-height: 5em; padding-top: 1em;">
         <div class="container">
             <div class="row">
                 <!-- Créditos e Direitos -->
@@ -98,6 +134,40 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Função para definir o tema e armazenar a escolha
+            function setTheme(theme) {
+                // Define o atributo no elemento raiz (pode ser <html> ou <body>)
+                document.documentElement.setAttribute('data-bs-theme', theme);
+                localStorage.setItem('theme', theme);
+            }
+
+            // Se já houver uma preferência salva, use-a
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme) {
+                setTheme(storedTheme);
+            } else {
+                // Se não, detecta a preferência do sistema
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                setTheme(prefersDark ? 'dark' : 'light');
+            }
+
+            // Adiciona listeners aos botões do dropdown
+            document.querySelectorAll('[data-bs-theme-value]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const theme = this.getAttribute('data-bs-theme-value');
+                    setTheme(theme);
+
+                    // Atualiza os atributos aria-pressed nos botões
+                    document.querySelectorAll('[data-bs-theme-value]').forEach(function (btn) {
+                        btn.setAttribute('aria-pressed', btn.getAttribute('data-bs-theme-value') === theme ? 'true' : 'false');
+                    });
+                });
+            });
+        });
+    </script>
 
     @Scripts.Render("~/bundles/jquery")
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
