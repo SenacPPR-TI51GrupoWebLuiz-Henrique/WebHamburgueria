@@ -1,7 +1,7 @@
 ﻿@model WebHamburgueria.ViewModels.LoginViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Login - Code & C#eese Web";
     Layout = null;
 }
 
@@ -11,12 +11,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
     <link href="~/Content/bootswatch/morph/bootstrap.min.css" rel="stylesheet" />
-
 </head>
 <body class="d-flex flex-column min-vh-100" @*data-bs-theme="dark"*@>
     @using (Html.BeginForm())
