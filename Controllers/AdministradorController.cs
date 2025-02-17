@@ -17,6 +17,7 @@ namespace WebHamburgueria.Controllers
         // GET: Administrador
         public ActionResult Index()
         {
+            ViewBag.Total = db.Administrador.Count();
             return View(db.Administrador.ToList());
         }
 
@@ -114,7 +115,6 @@ namespace WebHamburgueria.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
