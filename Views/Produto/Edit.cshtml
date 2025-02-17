@@ -6,7 +6,7 @@
 <!-- Seção com fundo (opcional: você pode definir uma cor ou imagem de fundo) -->
 <section style="background: url('https: //cdn.pixabay.com/photo/2015/06/24/15/45/burger-820876_1280.jpg') no-repeat center center; background-size: cover; padding-bottom: 1em;">
     <div class="container h-100 d-flex justify-content-center align-items-center">
-        <div class="card shadow-lg" style="width: 600px; border-radius: 1rem; background-color: rgba(255,255,255,0.9);">
+        <div class="card shadow-lg" style="width: 600px; border-radius: 1rem;">
             <div class="card-body p-5">
                 <h3 class="card-title text-center mb-4">Editar Produto</h3>
                 @using (Html.BeginForm("Edit", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -60,11 +60,11 @@
                     <br />
                     <br />
                     <div class="d-grid gap-2">
-                        <button type="submit" value="Save" class="btn btn-outline-primary btn-lg">Salvar</button>
+                        <button type="submit" value="Save" class="btn btn-primary btn-lg">Salvar</button>
                     </div>
                 }
                 <div class="mt-3 text-center">
-                    @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-outline-secondary" })
+                    @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-secondary" })
                 </div>
             </div>
         </div>
