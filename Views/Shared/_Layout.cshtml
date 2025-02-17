@@ -1,17 +1,32 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="pt-BR" data-bs-theme="light">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title Code & C#eese Web</title>
-    @Styles.Render("~/Content/bootswatch/morph/css")
-    @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Content/bootswatch/morph/bootstrap.min.css" rel="stylesheet" />
 
+    <!-- Script Inline para definir o tema imediatamente -->
+    <script>
+        (function () {
+            const storedTheme = localStorage.getItem('theme');
+            let theme = 'light';
+            if (storedTheme === 'dark' || (storedTheme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                theme = 'dark';
+            }
+            document.documentElement.setAttribute('data-bs-theme', theme);
+        })();
+    </script>
+
+    <title>@ViewBag.Title Code & C#eese Web</title>
+
+    <!-- Link do CSS do Bootstrap ou Bootswatch -->
+    @Styles.Render("~/Content/bootswatch/litera/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootswatch/zephyr/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body class="d-flex flex-column min-vh-100" @*data-bs-theme="dark"*@>
-    <nav class="navbar fixed-top align-top navbar-expand-lg navbar" style="background-color: steelblue; min-height: 3em;" data-bs-theme="dark">
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar fixed-top align-top navbar-expand-lg navbar bg-body" style="min-height: 3em;">
         <div class="container-fluid">
             @Html.ActionLink("Code & C#eese Web", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
@@ -19,6 +34,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarContent">
+
                 <!-- Menu principal à esquerda -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -39,7 +55,31 @@
                     <li class="nav-item">
                         @Html.ActionLink("Contato", "Contact", "Home", null, new { @class = "nav-link" })
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="theme-menu" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme">
+                            <i class="bi bi-circle-half"></i>
+                            <span class="d-lg-none ms-2">Tema</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                    <i class="bi bi-sun-fill me-2"></i>Claro
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                    <i class="bi bi-moon-stars-fill me-2"></i>Escuro
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                                    <i class="bi bi-circle-half me-2"></i>Automático
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
+
                 <!-- Formulário de busca -->
                 <!--<form class="d-flex me-3">
                     <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search">
@@ -61,13 +101,16 @@
         </div>
     </nav>
 
-    <main class="d-flex flex-column" style="padding-top: 4em;">
+    <main class="d-flex flex-column" style="padding-top: 5em;">
+        
+        <!-- Conteúdo da página -->
         @RenderBody()
     </main>
 
-    <footer class="mt-auto bg-light text-dark" style="min-height: 5em; padding-top: 1em;">
+    <footer class="mt-auto bg-body text-body" style="min-height: 5em; padding-top: 1em;">
         <div class="container">
             <div class="row">
+
                 <!-- Créditos e Direitos -->
                 <div class="col-md-6 mb-3 mb-md-0">
                     <br />
@@ -80,25 +123,97 @@
                     <p class="mb-0">&copy; @DateTime.Now.Year. Todos os direitos reservados.</p>
                     <br />
                 </div>
+
                 <!-- Ícones de Redes Sociais (opcional) -->
                 <!--<div class="col-md-6 text-center text-md-end">
                     <a href="#" class="text-white me-3">
                         <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="text-white me-3">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-white me-3">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="text-white">
-                        <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>-->
             </div>
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Define ou atualiza o tema
+            function setTheme(theme) {
+                document.documentElement.setAttribute('data-bs-theme', theme);
+                localStorage.setItem('theme', theme);
+            }
+
+            // Define o tema como "auto" (verifica o prefers-color-scheme)
+            function setThemeAuto() {
+                localStorage.setItem('theme', 'auto');
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', 'light');
+                }
+            }
+
+            // Escuta mudanças do sistema para atualizar quando está em "auto"
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                if (localStorage.getItem('theme') === 'auto') {
+                    setThemeAuto();
+                    updateThemeMenuIcon('auto');
+                }
+            });
+
+            // Carrega a preferência salva ou define "auto" por padrão
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme === 'dark') {
+                setTheme('dark');
+                updateThemeMenuIcon('dark');
+            } else if (storedTheme === 'light') {
+                setTheme('light');
+                updateThemeMenuIcon('light');
+            } else if (storedTheme === 'auto') {
+                setThemeAuto();
+                updateThemeMenuIcon('auto');
+            } else {
+
+                // Se não houver nada salvo, podemos defaultar para auto
+                setThemeAuto();
+                updateThemeMenuIcon('auto');
+            }
+
+            // Função para atualizar o ícone do botão principal de tema
+            function updateThemeMenuIcon(themeValue) {
+                const themeMenuIcon = document.querySelector('#theme-menu i');
+                if (!themeMenuIcon) return;
+                if (themeValue === 'light') {
+                    themeMenuIcon.className = 'bi bi-sun-fill';
+                } else if (themeValue === 'dark') {
+                    themeMenuIcon.className = 'bi bi-moon-stars-fill';
+                } else if (themeValue === 'auto') {
+                    themeMenuIcon.className = 'bi bi-circle-half';
+                }
+            }
+
+            // Lida com o clique nos botões do dropdown
+            document.querySelectorAll('[data-bs-theme-value]').forEach(button => {
+                button.addEventListener('click', function () {
+                    const value = this.getAttribute('data-bs-theme-value');
+                    if (value === 'auto') {
+                        setThemeAuto();
+                        updateThemeMenuIcon('auto');
+                    } else {
+                        setTheme(value);
+                        updateThemeMenuIcon(value);
+                    }
+
+                    // Atualiza o aria-pressed para acessibilidade
+                    document.querySelectorAll('[data-bs-theme-value]').forEach(btn => {
+                        btn.setAttribute('aria-pressed', btn.getAttribute('data-bs-theme-value') === value ? 'true' : 'false');
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- Scripts -->
     @Scripts.Render("~/bundles/jquery")
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @RenderSection("scripts", required: false)
