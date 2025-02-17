@@ -12,9 +12,9 @@
     </div>
 
     <!-- Card que envolve a tabela -->
-    <div class="card shadow-sm" style="border-radius: 1rem;">
-        <div class="card-body p-0">
-            <table class="table table-striped table-hover mb-0">
+    <div class="card shadow-sm rounded-table">
+        <div class="card-body p-0 rounded-table">
+            <table class="table table-striped table-hover mb-0 rounded-table">
                 <thead class="table-dark">
                     <tr>
                         <th>@Html.DisplayName("ID")</th>
@@ -76,6 +76,13 @@
     </div>
 </div>
 <style>
+    .rounded-table {
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 0.5rem; /* Ajuste o valor conforme necessário */
+        overflow: hidden;
+    }
+
     /* Oculta os botões por padrão */
     .action-button {
         opacity: 0;
