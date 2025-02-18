@@ -1,0 +1,201 @@
+/* =========================
+   Estilos Globais
+   ========================= */
+/*body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}*/
+
+/* =========================
+   Variáveis Customizadas (Exemplo)
+   ========================= */
+
+/* Essas variáveis podem ser definidas inline no HTML com data-bs-theme.
+   Exemplo:
+   <html data-bs-theme="light"> ou <html data-bs-theme="dark">
+*/
+
+/* Caso queira forçar algumas cores, pode definir aqui (opcional):
+[data-bs-theme="light"] {
+  --primary-bg: #ffffff;
+  --primary-text: #212529;
+  --navbar-bg: #e3f2fd;
+  --footer-bg: #f8f9fa;
+}
+
+[data-bs-theme="dark"] {
+  --primary-bg: #343a40;
+  --primary-text: #f8f9fa;
+  --navbar-bg: #343a40;
+  --footer-bg: #212529;
+} */
+
+/* =========================
+   Body
+   ========================= */
+[data-bs-theme="light"] body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff9ef;
+    color: #1f1b10;
+}
+[data-bs-theme="dark"] body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #161308;
+    color: #eae2cf;
+}
+
+/* =========================
+   Navbar
+   ========================= */
+[data-bs-theme="light"] .navbar {
+    background-color: #eae2cf;
+    color: #7e775f;
+}
+
+[data-bs-theme="dark"] .navbar {
+    background-color: #393528;
+    color: #eae2cf;
+}
+
+/* =========================
+   Footer
+   ========================= */
+[data-bs-theme="light"] footer {
+    background-color: #eae2cf;
+    color: #4d4732;
+}
+
+[data-bs-theme="dark"] footer {
+    background-color: #2e2a1e;
+    color: #d0c6ab;
+}
+
+/* =========================
+   Botões
+   ========================= */
+[data-bs-theme="light"] .btn-primary {
+    background-color: #705d00;
+    border-color: #705d00;
+    color: #d0c6ab;
+}
+
+[data-bs-theme="dark"] .btn-primary {
+    background-color: #fff6df;
+    border-color: #fff6df;
+    color: #4d4732;
+}
+
+/* Botões secundários */
+[data-bs-theme="light"] .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary {
+    border-color: #adb5bd;
+    color: #adb5bd;
+}
+
+/* =========================
+   Formulários
+   ========================= */
+[data-bs-theme="light"] .form-control {
+    background-color: #ffffff;
+    color: #212529;
+    border: 1px solid #ced4da;
+}
+
+[data-bs-theme="dark"] .form-control {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border: 1px solid #495057;
+}
+
+[data-bs-theme="light"] .form-label {
+    color: #212529;
+}
+
+[data-bs-theme="dark"] .form-label {
+    color: #f8f9fa;
+}
+
+/* =========================
+   Cards
+   ========================= */
+[data-bs-theme="light"] .card {
+    background-color: #ffffff;
+    color: #212529;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border: 1px solid #495057;
+    border-radius: 0.5rem;
+}
+
+/* =========================
+   Tabelas
+   ========================= */
+.rounded-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 0.5rem; /* Ajuste conforme necessário */
+    overflow: hidden;
+}
+
+/* =========================
+   Links e Tipografia
+   ========================= */
+[data-bs-theme="light"] a {
+    color: #705d00;
+    text-decoration: none;
+}
+/*
+    [data-bs-theme="light"] a:hover {
+        text-decoration: underline;
+    }
+*/
+[data-bs-theme="dark"] a {
+    color: #dbc677;
+    text-decoration: none;
+}
+
+/*    [data-bs-theme="dark"] a:hover {
+        text-decoration: underline;
+    }
+*/
+/* =========================
+   Customizações Adicionais
+   ========================= */
+
+/* Exemplo: centralizar conteúdo do footer verticalmente */
+/*footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}*/
+
+/* Exemplo: ajustes para o seletor de tema na navbar */
+.nav-item.dropdown [data-bs-theme-value] {
+    cursor: pointer;
+}
+
+/* E para garantir que os ícones se ajustem conforme o tema, você pode sobrescrever cores se necessário */
+[data-bs-theme="light"] .bi {
+    color: inherit;
+}
+
+[data-bs-theme="dark"] .bi {
+    color: inherit;
+}
