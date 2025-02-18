@@ -37,15 +37,15 @@
    Body
    ========================= */
 [data-bs-theme="light"] body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
+/*    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+*/    margin: 0;
     padding: 0;
     background-color: #fff9ef;
     color: #1f1b10;
 }
 [data-bs-theme="dark"] body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
+/*    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+*/    margin: 0;
     padding: 0;
     background-color: #161308;
     color: #eae2cf;
@@ -86,40 +86,83 @@
     color: #d0c6ab;
 }
 
+[data-bs-theme="light"] .btn-outline-primary {
+    background-color: #705d00;
+    border-color: #705d00;
+    color: #d0c6ab;
+}
+
 [data-bs-theme="dark"] .btn-primary {
     background-color: #fff6df;
     border-color: #fff6df;
     color: #4d4732;
 }
 
+[data-bs-theme="dark"] .btn-outline-primary {
+    background-color: #fff6df;
+    border-color: #fff6df;
+    color: #4d4732;
+}
+
 /* Botões secundários */
+[data-bs-theme="light"] .btn-secondary {
+    border-color: #6d5d1a;
+    color: #6d5d1a;
+}
+
 [data-bs-theme="light"] .btn-outline-secondary {
-    border-color: #6c757d;
-    color: #6c757d;
+    border-color: #6d5d1a;
+    color: #6d5d1a;
+}
+
+[data-bs-theme="dark"] .btn-secondary {
+    border-color: #dbc677;
+    color: #dbc677;
 }
 
 [data-bs-theme="dark"] .btn-outline-secondary {
-    border-color: #adb5bd;
-    color: #adb5bd;
+    border-color: #dbc677;
+    color: #dbc677;
+}
+
+/* Botões danger */
+[data-bs-theme="light"] .btn-danger {
+    border-color: #ba1a1a;
+    color: #ffdad6;
+}
+
+[data-bs-theme="light"] .btn-outline-danger {
+    border-color: #ba1a1a;
+    color: #ffdad6;
+}
+
+[data-bs-theme="dark"] .btn-danger {
+    border-color: #ffb4ab;
+    color: #93000a;
+}
+
+[data-bs-theme="dark"] .btn-outline-danger {
+    border-color: #ffb4ab;
+    color: #93000a;
 }
 
 /* =========================
    Formulários
    ========================= */
 [data-bs-theme="light"] .form-control {
-    background-color: #ffffff;
-    color: #212529;
-    border: 1px solid #ced4da;
+    background-color: #fff9ef;
+    color: #1f1b10;
+    border: 1px solid #fff9ef;
 }
 
 [data-bs-theme="dark"] .form-control {
     background-color: #343a40;
     color: #f8f9fa;
-    border: 1px solid #495057;
+    border: 1px solid #343a40;
 }
 
 [data-bs-theme="light"] .form-label {
-    color: #212529;
+    color: #1f1b10;
 }
 
 [data-bs-theme="dark"] .form-label {
@@ -130,16 +173,16 @@
    Cards
    ========================= */
 [data-bs-theme="light"] .card {
-    background-color: #ffffff;
-    color: #212529;
-    border: 1px solid #e0e0e0;
+    background-color: #f8e290;
+    color: #705d00;
+    border: 1px solid #f8e290;
     border-radius: 0.5rem;
 }
 
 [data-bs-theme="dark"] .card {
-    background-color: #343a40;
-    color: #f8f9fa;
-    border: 1px solid #495057;
+    background-color: #544601;
+    color: #fff6df;
+    border: 1px solid #544601;
     border-radius: 0.5rem;
 }
 
