@@ -156,9 +156,9 @@
 }
 
 [data-bs-theme="dark"] .form-control {
-    background-color: #343a40;
-    color: #f8f9fa;
-    border: 1px solid #343a40;
+    background-color: #16130b;
+    color: #e9e2d4;
+    border: 1px solid #16130b;
 }
 
 [data-bs-theme="light"] .form-label {
@@ -166,7 +166,7 @@
 }
 
 [data-bs-theme="dark"] .form-label {
-    color: #f8f9fa;
+    color: #e9e2d4;
 }
 
 /* =========================
