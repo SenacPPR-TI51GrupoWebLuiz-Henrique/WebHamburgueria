@@ -1,10 +1,10 @@
 ﻿@model WebHamburgueria.Models.Produto
 
 @{
-    ViewBag.Title = "Excluir Produto";
+    ViewBag.Title = "Excluir Produto - ";
 }
 
-<section class="d-flex align-items-center" style="background: url('https://cdn.pixabay.com/photo/2016/11/29/10/07/brick-1869718_1280.jpg') no-repeat center center; background-size: cover; padding-bottom: 1em;">
+<section class="d-flex align-items-center" style="padding-bottom: 1em;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
@@ -17,6 +17,10 @@
                     <div class="card-body">
                         <p class="text-center fw-bold">Tem certeza que deseja excluir este produto?</p>
                         <hr />
+                        <div class="mb-3">
+                            <strong>@Html.DisplayNameFor(model => model.Id):</strong>
+                            <p>@Html.DisplayFor(model => model.Id)</p>
+                        </div>
                         <div class="mb-3">
                             <strong>@Html.DisplayNameFor(model => model.Nome):</strong>
                             <p>@Html.DisplayFor(model => model.Nome)</p>

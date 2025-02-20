@@ -1,65 +1,52 @@
 ﻿@model WebHamburgueria.Models.Administrador
-
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Administrador - ";
 }
 
-<h2>Edit</h2>
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Administrador</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+<!-- Seção com fundo (opcional: você pode definir uma cor ou imagem de fundo) -->
+<section style="background: url('https: //cdn.pixabay.com/photo/2015/06/24/15/45/burger-820876_1280.jpg') no-repeat center center; background-size: cover; padding-bottom: 1em;">
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+        <div class="card shadow-lg" style="width: 600px; border-radius: 1rem;">
+            <div class="card-body p-5">
+                <h3 class="card-title text-center mb-4">Editar Administrador</h3>
+                @using (Html.BeginForm("Edit", "Administrador", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.Id)
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Nome, new { @class = "form-label" })
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { id = "txt-name", @class = "form-control", placeholder = "Digite o Nome do Administrador", maxlength = "255" } })
+                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Cpf, new { @class = "form-label" })
+                        @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control", placeholder = "00000000000", maxlength = "11" } })
+                        @Html.ValidationMessageFor(model => model.Cpf, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Login, new { @class = "form-label" })
+                        @Html.EditorFor(model => model.Login, new { htmlAttributes = new { @class = "form-control", placeholder = "login-do-administrador", maxlength = "12" } })
+                        @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Senha, new { @class = "form-label" })
+                        @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control", placeholder = "Ex: S3nh@s3gur4", maxlength = "50" } })
+                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="d-grid gap-2">
+                        <button type="submit" value="Save" class="btn btn-primary btn-lg">Salvar</button>
+                    </div>
+                }
+                <div class="mt-3 text-center">
+                    @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+</section>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
