@@ -14,12 +14,20 @@ namespace WebHamburgueria.Models
     using System.Collections.Generic;
     using System.Web;
     using System.Runtime.Serialization;
+    using System.ComponentModel;
+    using System.Resources;
 
     public partial class Produto
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        [DataType(DataType.Currency)]
+        //
+        //[Range(10, 99999.99,
+        //     ErrorMessage = "O Preço de Venda deve estar entre " +
+        //                    "10,00 e 99999,99.")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:C}")]
+        //[DataType(DataType.Currency)]
+        
         [Display(Name = "Preço")]
         public decimal Preco { get; set; }
         [Display(Name = "Descrição")]
