@@ -4,7 +4,6 @@
     ViewBag.Title = "Novo Produto - ";
 }
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 
@@ -25,8 +24,10 @@
 
                     <div class="mb-3">
                         @Html.LabelFor(model => model.Preco, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.Preco, new { htmlAttributes = new { @class = "form-control"  } })
-                        <small id="image-info" class="form-text text-muted">Utilize . como separador de centavos.</small>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">R$</span>
+                            @Html.EditorFor(model => model.Preco, new { htmlAttributes = new { @class = "form-control", placeholder = "0,00", maxlength = "6" } })
+                        </div>
                         @Html.ValidationMessageFor(model => model.Preco, "", new { @class = "text-danger" })
                     </div>
 
@@ -59,11 +60,9 @@
                             }, "Selecione", new { @class = "form-select" })
                         @Html.ValidationMessageFor(model => model.Tipo, null, new { @class = "text-danger" })
                     </div>
-
                     <br />
                     <br />
                     <br />
-
                     <div class="d-grid gap-2">
                         <button type="submit" value="Create" class="btn btn-primary btn-lg">Salvar</button>
                     </div>
@@ -77,7 +76,7 @@
 </section>
 
 <script>
-    $('#Preco').maskMoney({ prefix: 'R$ ', allowNegative: false, thousands: '.', decimal: ',', affixesStay: false });
+    $('#Preco').maskMoney({ allowNegative: false, thousands: '.', decimal: ',', affixesStay: false });
 </script>
 
 @section Scripts {

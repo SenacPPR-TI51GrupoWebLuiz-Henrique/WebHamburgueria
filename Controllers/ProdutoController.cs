@@ -86,7 +86,7 @@ namespace WebHamburgueria.Controllers
             produtoFoto.Id = produto.Id;
             produtoFoto.Nome = produto.Nome;
             produtoFoto.Descricao = produto.Descricao;
-            //produtoFoto.Preco = produto.Preco;
+            produtoFoto.Preco = Convert.ToString(produto.Preco);
             produtoFoto.Ingredientes = produto.Ingredientes;
             produtoFoto.Foto = produto.Foto;
 
@@ -110,7 +110,7 @@ namespace WebHamburgueria.Controllers
             var produto = db.Produto.Find(produtofoto.Id);
 
             produto.Nome = produtofoto.Nome;
-            //produto.Preco = produtofoto.Preco;
+            produto.Preco = Convert.ToDecimal(produtofoto.Preco);
             produto.Descricao = produtofoto.Descricao;
             produto.Ingredientes = produtofoto.Ingredientes;
 

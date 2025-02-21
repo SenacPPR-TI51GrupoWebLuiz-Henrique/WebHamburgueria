@@ -21,13 +21,7 @@ namespace WebHamburgueria.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        //
-        //[Range(10, 99999.99,
-        //     ErrorMessage = "O Preço de Venda deve estar entre " +
-        //                    "10,00 e 99999,99.")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:C}")]
-        //[DataType(DataType.Currency)]
-        
+        [DataType(DataType.Currency)]
         [Display(Name = "Preço")]
         public decimal Preco { get; set; }
         [Display(Name = "Descrição")]
