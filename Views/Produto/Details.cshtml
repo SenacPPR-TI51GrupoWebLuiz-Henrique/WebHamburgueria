@@ -4,13 +4,15 @@
     ViewBag.Title = "Detalhes do Produto";
 }
 
-<section style="background: url('https://cdn.pixabay.com/photo/2015/06/24/15/45/burger-820876_1280.jpg') no-repeat center center; background-size: cover; padding-bottom: 1em;">
+<section style="padding-bottom: 1em;">
     <div class="container d-flex justify-content-center align-items-center">
-        <div class="card shadow-lg" style="width: 650px; border-radius: 1rem; background-color: rgba(255,255,255,0.95);">
+        <div class="card shadow-lg" style="width: 650px; border-radius: 1rem;">
+
             <!-- Cabeçalho do Card -->
             <div class="card-header bg-primary text-white text-center" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
                 <h3 class="card-title mb-0">Detalhes do Produto</h3>
             </div>
+
             <!-- Corpo do Card -->
             <div class="card-body p-5">
                 <div class="mb-3">
@@ -53,11 +55,12 @@
                     <span>@(Model.Tipo == "L" ? "Lanche" : Model.Tipo == "B" ? "Bebida" : Model.Tipo == "A" ? "Acompanhamento" : "Tipo Inválido")</span>
                 </div>
             </div>
+
             <!-- Rodapé do Card -->
             <div class="card-footer text-center">
-                <a href="@Url.Action("Delete", "Produto", new { id = Model.Id })" class="btn btn-outline-primary me-2">Excluir</a>
-                <a href="@Url.Action("Edit", "Produto", new { id = Model.Id })" class="btn btn-outline-primary me-2">Editar</a>
-                <a href="@Url.Action("Index", "Produto")" class="btn btn-outline-secondary">Voltar para Lista</a>
+                <a href="@Url.Action("Delete", "Produto", new { id = Model.Id })" class="btn btn-primary me-2">Excluir</a>
+                <a href="@Url.Action("Edit", "Produto", new { id = Model.Id })" class="btn btn-primary me-2">Editar</a>
+                <a href="@Url.Action("Index", "Produto")" class="btn btn-secondary">Voltar para Lista</a>
             </div>
         </div>
     </div>

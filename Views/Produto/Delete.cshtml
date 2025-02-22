@@ -1,14 +1,14 @@
 ﻿@model WebHamburgueria.Models.Produto
 
 @{
-    ViewBag.Title = "Excluir Produto";
+    ViewBag.Title = "Excluir Produto - ";
 }
 
-<section class="d-flex align-items-center" style="background: url('https://cdn.pixabay.com/photo/2016/11/29/10/07/brick-1869718_1280.jpg') no-repeat center center; background-size: cover; padding-bottom: 1em;">
+<section class="d-flex align-items-center" style="padding-bottom: 1em;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
-                <div class="card shadow-lg" style="border-radius: 1rem; background-color: rgba(255,255,255,0.95);">
+                <div class="card shadow-lg" style="border-radius: 1rem;">
                     <!-- Cabeçalho -->
                     <div class="card-header bg-danger text-white text-center" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
                         <h3 class="card-title mb-0">Confirmação de Exclusão</h3>
@@ -17,6 +17,10 @@
                     <div class="card-body">
                         <p class="text-center fw-bold">Tem certeza que deseja excluir este produto?</p>
                         <hr />
+                        <div class="mb-3">
+                            <strong>@Html.DisplayNameFor(model => model.Id):</strong>
+                            <p>@Html.DisplayFor(model => model.Id)</p>
+                        </div>
                         <div class="mb-3">
                             <strong>@Html.DisplayNameFor(model => model.Nome):</strong>
                             <p>@Html.DisplayFor(model => model.Nome)</p>
@@ -55,8 +59,8 @@
                         @using (Html.BeginForm())
                         {
                             @Html.AntiForgeryToken()
-                            <button type="submit" class="btn btn-outline-danger me-2">Excluir</button>
-                            @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-outline-secondary" })
+                            <button type="submit" class="btn btn-danger me-2">Excluir</button>
+                            @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-secondary" })
                         }
                     </div>
                 </div>

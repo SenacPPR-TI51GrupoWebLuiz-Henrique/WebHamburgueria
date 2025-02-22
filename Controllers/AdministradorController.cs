@@ -17,21 +17,28 @@ namespace WebHamburgueria.Controllers
         // GET: Administrador
         public ActionResult Index()
         {
+            ViewBag.Total = db.Administrador.Count();
+
             return View(db.Administrador.ToList());
         }
 
         // GET: Administrador/Details/5
         public ActionResult Details(int? id)
         {
+            ViewBag.Total = db.Administrador.Count();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Administrador administrador = db.Administrador.Find(id);
+
             if (administrador == null)
             {
                 return HttpNotFound();
             }
+
             return View(administrador);
         }
 
@@ -92,6 +99,8 @@ namespace WebHamburgueria.Controllers
         // GET: Administrador/Delete/5
         public ActionResult Delete(int? id)
         {
+            ViewBag.Total = db.Administrador.Count();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -114,7 +123,6 @@ namespace WebHamburgueria.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
