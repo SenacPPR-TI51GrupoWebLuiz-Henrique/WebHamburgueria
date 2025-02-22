@@ -41,7 +41,7 @@ CREATE TABLE [dbo].[Pedido](
 	[CpfUsuario] [varchar](11) NOT NULL,
 	[Total] [decimal](10, 2) NOT NULL,
 	[DataPedido] [datetime] NOT NULL,
-	[Finalizado] [bit] NOT NULL,
+	[Status] [char](1) NOT NULL,
 	[MetPag] [char](1) NULL,
  CONSTRAINT [PK_Pedido] PRIMARY KEY CLUSTERED 
 (
@@ -104,7 +104,7 @@ WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNOR
 GO
 ALTER TABLE [dbo].[Pedido] ADD  CONSTRAINT [DF_Pedido_DataPedido]  DEFAULT (sysdatetime()) FOR [DataPedido]
 GO
-ALTER TABLE [dbo].[Pedido] ADD  CONSTRAINT [DF_Pedido_Status]  DEFAULT ((0)) FOR [Finalizado]
+ALTER TABLE [dbo].[Pedido] ADD  CONSTRAINT [DF_Pedido_Status]  DEFAULT ('A') FOR [Status]
 GO
 ALTER TABLE [dbo].[Produto] ADD  CONSTRAINT [DF_Produto_Tipo]  DEFAULT ('L') FOR [Tipo]
 GO
