@@ -119,7 +119,17 @@ USE [master]
 GO
 ALTER DATABASE [dbhamburgueria] SET  READ_WRITE 
 GO
---USE [dbhamburgueria]
---CREATE LOGIN Aluno WITH PASSWORD = 'Senac111';
---ALTER ROLE db_owner ADD MEMBER Aluno;
---GO
+
+/****** Create login Aluno: ******/
+USE [master]
+GO
+CREATE LOGIN [Aluno] WITH PASSWORD='Senac111', DEFAULT_DATABASE=[dbhamburgueria], DEFAULT_LANGUAGE=[Português (Brasil)], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+GO
+ALTER LOGIN [Aluno] DISABLE
+GO
+ALTER SERVER ROLE [sysadmin] ADD MEMBER [Aluno]
+GO
+USE [dbhamburgueria]
+GO
+CREATE USER [Aluno] FOR LOGIN [Aluno] WITH DEFAULT_SCHEMA=[dbo]
+GO
