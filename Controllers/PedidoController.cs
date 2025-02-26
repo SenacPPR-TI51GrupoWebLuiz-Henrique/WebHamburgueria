@@ -58,12 +58,14 @@ namespace WebHamburgueria.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (model.CpfUsuario == null) { model.CpfUsuario = ""; };
+
                 // Mapeie o ViewModel para as entidades do banco
                 var pedido = new Pedido
                 {
                     CpfUsuario = model.CpfUsuario,
-                    DataPedido = model.DataPedido,
-                    Status = model.Status,
+                    DataPedido = DateTime.Now,
+                    Status = "A",
                     MetPag = model.MetPag,
                     // Se você quiser calcular o Total automaticamente,
                     // some os PrecoProduto dos itens:
