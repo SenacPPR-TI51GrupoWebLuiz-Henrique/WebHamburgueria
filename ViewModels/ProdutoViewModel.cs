@@ -11,8 +11,7 @@ namespace WebHamburgueria.Viewmodel
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        //[DataType(DataType.Currency)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:C}")]
+        [DataType(DataType.Currency)]
         public string Preco { get; set; }
         public string Descricao { get; set; }
         public string Ingredientes { get; set; }

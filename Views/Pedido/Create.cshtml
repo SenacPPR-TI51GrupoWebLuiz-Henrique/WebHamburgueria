@@ -1,4 +1,4 @@
-﻿@model WebHamburgueria.Models.Pedido
+﻿@model WebHamburgueria.ViewModels.PedidoViewModel
 
 @{
     ViewBag.Title = "Novo Pedido - ";
@@ -21,45 +21,58 @@
                         @Html.EditorFor(model => model.CpfUsuario, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
                         @Html.ValidationMessageFor(model => model.CpfUsuario, "", new { @class = "text-danger" })
                     </div>
-
                     <div class="mb-3">
-                        @Html.LabelFor(model => model.Preco, new { @class = "form-label" })
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">R$</span>
-                            @Html.EditorFor(model => model.Preco, new { htmlAttributes = new { @class = "form-control", placeholder = "0,00", maxlength = "6" } })
-                        </div>
-                        @Html.ValidationMessageFor(model => model.Preco, "", new { @class = "text-danger" })
-                    </div>
-
-                    <div class="mb-3">
-                        @Html.LabelFor(model => model.Descricao, new { @class = "form-label" })
-                        @Html.TextAreaFor(model => model.Descricao, new { @class = "form-control", rows = "8", placeholder = "Descreva o produto", maxlength = "431" })
-                        @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
-                    </div>
-
-                    <div class="mb-3">
-                        @Html.LabelFor(model => model.Ingredientes, new { @class = "form-label" })
-                        @Html.TextAreaFor(model => model.Ingredientes, new { @class = "form-control", rows = "3", placeholder = "Ex: Alface, Tomate, Queijo...", maxlength = "150" })
-                        @Html.ValidationMessageFor(model => model.Ingredientes, "", new { @class = "text-danger" })
-                    </div>
-
-                    <div class="mb-3">
-                        @Html.LabelFor(model => model.ImageUpload, new { @class = "form-label" })
-                        @Html.TextBoxFor(model => model.ImageUpload, new { type = "file", @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.ImageUpload, "", new { @class = "text-danger" })
-                    </div>
-
-                    <div class="mb-3">
-                        @Html.LabelFor(model => model.Tipo, new { @class = "form-label" })
-                        @Html.DropDownListFor(model => model.Tipo,
+                        @Html.LabelFor(model => model.MetPag, new { @class = "form-label" })
+                        @Html.DropDownListFor(model => model.MetPag,
                             new List<SelectListItem>
                             {
-                                new SelectListItem { Text = "Lanche", Value = "L" },
-                                new SelectListItem { Text = "Bebida", Value = "B" },
-                                new SelectListItem { Text = "Acompanhamento", Value = "A" }
+                                new SelectListItem { Text = "Dinheiro", Value = "R" },
+                                new SelectListItem { Text = "Pix", Value = "P" },
+                                new SelectListItem { Text = "Débito", Value = "D" },
+                                new SelectListItem { Text = "Crédito", Value = "C" }
                             }, "Selecione", new { @class = "form-select" })
-                        @Html.ValidationMessageFor(model => model.Tipo, null, new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.MetPag, null, new { @class = "text-danger" })
                     </div>
+                    <hr />
+                    <h4>Itens do Pedido</h4>
+                    <div class="table-responsive">
+                        <table class="table" id="itens-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome Produto</th>
+                                    <th>Preço</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Itens.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Itens[i].NomeProduto, new { @class = "form-control", placeholder = "Nome do produto" })
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Itens[i].PrecoProduto, new { @class = "form-control", placeholder = "0.00", type = "number", step = "0.01" })
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" onclick="removeRow(this)">Remover</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-2" id="addItem">Adicionar Item</button>
+                    <hr />
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Total, new { @class = "form-label" })
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">R$</span>
+                            @Html.EditorFor(model => model.Total, new { htmlAttributes = new { @class = "form-control", placeholder = "0,00", maxlength = "6" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Total, "", new { @class = "text-danger" })
+                    </div>
+
                     <br />
                     <br />
                     <br />
@@ -75,10 +88,38 @@
     </div>
 </section>
 
-<script>
-    $('#Preco').maskMoney({ allowNegative: false, thousands: '.', decimal: ',', affixesStay: false });
-</script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $('#Total').maskMoney({ allowNegative: false, thousands: '.', decimal: ',', affixesStay: false });
+
+            let itensTable = document.getElementById('itens-table').getElementsByTagName('tbody')[0];
+        let addItemButton = document.getElementById('addItem');
+        // Inicia o índice com o total de itens que vieram do servidor (se vierem)
+        let rowIndex = @Model.Itens.Count;
+
+        addItemButton.addEventListener('click', function() {
+            let row = itensTable.insertRow();
+            let nomeCell = row.insertCell(0);
+            let precoCell = row.insertCell(1);
+            let removeCell = row.insertCell(2);
+
+            nomeCell.innerHTML = `<input class="form-control nome-produto" name="Itens[${rowIndex}].NomeProduto" placeholder="Nome do produto" type="text" />`;
+            precoCell.innerHTML = `<input class="form-control preco-produto" name="Itens[${rowIndex}].PrecoProduto" placeholder="0.00" type="number" step="0.01" />`;
+            removeCell.innerHTML = `<button type="button" class="btn btn-danger" onclick="removeRow(this)">Remover</button>`;
+
+            rowIndex++;
+        });
+
+        function removeRow(btn) {
+            let row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+
+        $(document).ready(function () {
+});
+    </script>
 }

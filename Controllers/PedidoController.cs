@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebHamburgueria.Models;
+using WebHamburgueria.ViewModels;
 
 namespace WebHamburgueria.Controllers
 {
@@ -38,7 +39,15 @@ namespace WebHamburgueria.Controllers
         // GET: Pedido/Create
         public ActionResult Create()
         {
-            return View();
+            var model = new PedidoViewModel
+            {
+                DataPedido = DateTime.Now,
+                Itens = new List<ItensPedidoViewModel>
+                {
+                    // Insira um item inicial se desejar
+                }
+            };
+            return View(model);
         }
 
         // POST: Pedido/Create
@@ -46,17 +55,46 @@ namespace WebHamburgueria.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CpfUsuario,MetPag,Status,Total,DataPedido")] Pedido pedido)
+        public ActionResult Create(PedidoViewModel model)
         {
             if (ModelState.IsValid)
             {
+                // Mapeie o ViewModel para as entidades do banco
+                var pedido = new Pedido
+                {
+                    CpfUsuario = model.CpfUsuario,
+                    DataPedido = model.DataPedido,
+                    Status = model.Status,
+                    MetPag = model.MetPag,
+                    // Se você quiser calcular o Total automaticamente,
+                    // some os PrecoProduto dos itens:
+                    Total = model.Itens.Sum(i => Convert.ToDecimal(i.PrecoProduto))
+                };
+
+                // Salve o Pedido
                 db.Pedido.Add(pedido);
                 db.SaveChanges();
+
+                // Salve os Itens
+                foreach (var itemVm in model.Itens)
+                {
+                    var item = new ItensPedido
+                    {
+                        IdPedido = pedido.Id,
+                        NomeProduto = itemVm.NomeProduto,
+                        PrecoProduto = Convert.ToDecimal(itemVm.PrecoProduto)
+                    };
+                    db.ItensPedido.Add(item);
+                }
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
-            return View(pedido);
+            // Se algo falhar, retorne a view com os dados
+            return View(model);
         }
+
 
         // GET: Pedido/Edit/5
         public ActionResult Edit(int? id)
@@ -78,8 +116,16 @@ namespace WebHamburgueria.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CpfUsuario,MetPag,Status,Total,DataPedido")] Pedido pedido)
+        public ActionResult Edit(PedidoViewModel pedidovm)
         {
+            var pedido = db.Pedido.Find(pedidovm.Id);
+
+            pedido.CpfUsuario = pedidovm.CpfUsuario;
+            pedido.Status = pedidovm.Status;
+            pedido.MetPag = pedidovm.MetPag;
+            pedido.Total = pedidovm.Itens.Sum(i => Convert.ToDecimal(i.PrecoProduto));
+            pedido.DataPedido = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 db.Entry(pedido).State = EntityState.Modified;
@@ -87,6 +133,41 @@ namespace WebHamburgueria.Controllers
                 return RedirectToAction("Index");
             }
             return View(pedido);
+        }
+
+        // GET: Pedido/Edit/5
+        public ActionResult Cancel(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Pedido pedido = db.Pedido.Find(id);
+            if (pedido == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pedido);
+        }
+
+        // POST: Pedido/Edit/5
+        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
+        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Cancel([Bind(Include = "Id,Status")] PedidoViewModel pedidovm)
+        {
+            var pedido = db.Pedido.Find(pedidovm.Id);
+
+            pedido.Status = "C";
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(pedido).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(pedidovm);
         }
 
         // GET: Pedido/Delete/5
