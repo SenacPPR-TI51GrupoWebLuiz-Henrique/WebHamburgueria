@@ -41,10 +41,9 @@ namespace WebHamburgueria.Controllers
         {
             var model = new PedidoViewModel
             {
-                DataPedido = DateTime.Now,
                 Itens = new List<ItensPedidoViewModel>
                 {
-                    // Insira um item inicial se desejar
+
                 }
             };
             return View(model);
