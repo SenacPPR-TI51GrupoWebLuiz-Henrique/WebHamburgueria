@@ -2,6 +2,13 @@
 
 @{
     ViewBag.Title = "Criar Novo Pedido";
+
+    // Gera uma string de opções com os produtos
+    var produtoOptionsHtml = "";
+    foreach (var prod in ViewBag.ProdutoData)
+    {
+        produtoOptionsHtml += $"<option value=\"{prod.Id}\" data-preco=\"{prod.Preco}\">{prod.Nome}</option>";
+    }
 }
 
 <section style="padding-bottom: 1em;">
@@ -35,10 +42,15 @@
                                     {
                                         <tr>
                                             <td>
-                                                @Html.TextBoxFor(m => m.Itens[i].NomeProduto, new { @class = "form-control", placeholder = "Nome do produto" })
+                                                <!-- Dropdown para selecionar o produto -->
+                                                <select class="form-select nome-produto" name="Itens[@i].ProdutoId">
+                                                    <option value="">Selecione o produto</option>
+                                                    @Html.Raw(produtoOptionsHtml)
+                                                </select>
                                             </td>
                                             <td>
-                                                @Html.TextBoxFor(m => m.Itens[i].PrecoProduto, new { @class = "form-control", placeholder = "0.00", type = "number", step = "0.01" })
+                                                <!-- Campo de preço que será preenchido automaticamente -->
+                                                @Html.TextBoxFor(m => m.Itens[i].PrecoProduto, new { @class = "form-control preco-produto", placeholder = "0.00", type = "number", step = "0.01" })
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-danger action-button" onclick="removeRow(this)">Remover</button>
@@ -78,20 +90,27 @@
     </div>
 </section>
 @section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        // Variável contendo as opções já geradas (em HTML)
+        var produtosOptionsHtml = '@Html.Raw(produtoOptionsHtml)';
+
+        // Função para adicionar uma nova linha na tabela
         let itensTable = document.getElementById('itens-table').getElementsByTagName('tbody')[0];
         let addItemButton = document.getElementById('addItem');
-        // Inicia o índice com o total de itens que vieram do servidor (se vierem)
         let rowIndex = @Model.Itens.Count;
 
         addItemButton.addEventListener('click', function() {
             let row = itensTable.insertRow();
-            let nomeCell = row.insertCell(0);
+            let produtoCell = row.insertCell(0);
             let precoCell = row.insertCell(1);
             let removeCell = row.insertCell(2);
 
-            nomeCell.innerHTML = `<input class="form-control" name="Itens[${rowIndex}].NomeProduto" placeholder="Nome do produto" type="text" />`;
-            precoCell.innerHTML = `<input class="form-control" name="Itens[${rowIndex}].PrecoProduto" placeholder="0.00" type="number" step="0.01" />`;
+            produtoCell.innerHTML = `<select class="form-select nome-produto" name="Itens[${rowIndex}].ProdutoId">
+                                        <option value="">Selecione o produto</option>
+                                        ${produtosOptionsHtml}
+                                      </select>`;
+            precoCell.innerHTML = `<input class="form-control preco-produto" name="Itens[${rowIndex}].PrecoProduto" placeholder="0.00" type="number" step="0.01" />`;
             removeCell.innerHTML = `<button type="button" class="btn btn-danger" onclick="removeRow(this)">Remover</button>`;
 
             rowIndex++;
@@ -101,5 +120,12 @@
             let row = btn.parentNode.parentNode;
             row.parentNode.removeChild(row);
         }
+
+        // Evento para preencher automaticamente o campo de preço com base no produto selecionado
+        $(document).on('change', '.nome-produto', function() {
+            let selectedOption = $(this).find('option:selected');
+            let preco = selectedOption.data('preco');
+            $(this).closest('tr').find('.preco-produto').val(preco);
+        });
     </script>
 }

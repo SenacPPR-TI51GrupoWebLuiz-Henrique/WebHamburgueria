@@ -39,13 +39,23 @@ namespace WebHamburgueria.Controllers
         // GET: Pedido/Create
         public ActionResult Create()
         {
+            var produtos = db.Produto
+                                       .Select(p => new
+                                       {
+                                           p.Id,
+                                           p.Nome,
+                                           p.Preco
+                                       }).ToList();
+
+            // Armazene a lista no ViewBag para uso na view
+            ViewBag.ProdutosData = produtos;
+
+            // Inicializa o ViewModel do Pedido com uma lista vazia de itens
             var model = new PedidoViewModel
             {
-                Itens = new List<ItensPedidoViewModel>
-                {
-
-                }
+                Itens = new List<ItensPedidoViewModel>()
             };
+
             return View(model);
         }
 
