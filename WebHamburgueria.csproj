@@ -175,7 +175,9 @@
     </Compile>
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ItensPedidoViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\PedidoViewModel.cs" />
     <Compile Include="ViewModels\ProdutoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -251,6 +253,7 @@
     <Content Include="ConnectionStrings.config" />
     <Content Include="Content\bootswatch\zephyr\_bootswatch.scss" />
     <Content Include="Content\bootswatch\zephyr\_variables.scss" />
+    <None Include="Properties\PublishProfiles\codeandcheese - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -262,6 +265,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="sqlqueries\SQLQuery_Create_dbhamburgueria-luiznbwin7.sql" />
+    <Content Include="sqlqueries\SQLQuery_Create_dbhamburgueria.sql" />
+    <Content Include="sqlqueries\SQLQuery_Manual_Insert.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -297,6 +303,7 @@
     <Content Include="Views\Administrador\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Produto\Edit.cshtml" />
+    <Content Include="Views\Pedido\Cancel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
