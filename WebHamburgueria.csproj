@@ -253,6 +253,7 @@
     <Content Include="ConnectionStrings.config" />
     <Content Include="Content\bootswatch\zephyr\_bootswatch.scss" />
     <Content Include="Content\bootswatch\zephyr\_variables.scss" />
+    <None Include="Properties\PublishProfiles\codeandcheese - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

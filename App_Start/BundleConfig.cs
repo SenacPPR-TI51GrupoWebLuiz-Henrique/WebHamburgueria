@@ -27,6 +27,9 @@ namespace WebHamburgueria
             bundles.Add(new StyleBundle("~/lib/bootstrap/dist").Include(
                       "~/css/bootstrap.css",
                       "~/css/site.css"));
+        
+            bundles.Add(new StyleBundle("~/Content/bootswatch").Include(
+          "~/zephyr/bootstrap.css"));
         }
     }
 }
