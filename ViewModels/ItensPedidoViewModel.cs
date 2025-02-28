@@ -12,6 +12,8 @@ namespace WebHamburgueria.ViewModels
         [Display(Name = "Id do Pedido")]
         public int IdPedido { get; set; }
         [Display(Name = "Nome do Produto")]
+        public int IdProduto { get; set; }
+        [Display(Name = "Nome do Produto")]
         public string NomeProduto { get; set; }
         [Display(Name = "Preço do Produto")]
         public string PrecoProduto { get; set; }
