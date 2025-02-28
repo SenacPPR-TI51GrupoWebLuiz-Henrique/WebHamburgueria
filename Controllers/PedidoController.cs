@@ -39,16 +39,15 @@ namespace WebHamburgueria.Controllers
         // GET: Pedido/Create
         public ActionResult Create()
         {
-            var produtos = db.Produto
-                                       .Select(p => new
-                                       {
-                                           p.Id,
-                                           p.Nome,
-                                           p.Preco
-                                       }).ToList();
+            var produtos = db.Produto.Select(p => new DTOs.ProdutoDTO
+            {
+                Id = p.Id,
+                Nome = p.Nome,
+                Preco = p.Preco
+            }).ToList();
 
             // Armazene a lista no ViewBag para uso na view
-            ViewBag.ProdutosData = produtos;
+            ViewBag.ProdutoData = produtos;
 
             // Inicializa o ViewModel do Pedido com uma lista vazia de itens
             var model = new PedidoViewModel
@@ -84,25 +83,37 @@ namespace WebHamburgueria.Controllers
 
                 // Salve o Pedido
                 db.Pedido.Add(pedido);
-                db.SaveChanges();
 
                 // Salve os Itens
                 foreach (var itemVm in model.Itens)
                 {
-                    var item = new ItensPedido
+                    var produto = db.Produto.Find(itemVm.IdProduto);
+                    if (produto != null)
                     {
-                        IdPedido = pedido.Id,
-                        NomeProduto = itemVm.NomeProduto,
-                        PrecoProduto = Convert.ToDecimal(itemVm.PrecoProduto)
-                    };
-                    db.ItensPedido.Add(item);
+                        var item = new ItensPedido
+                        {
+                            IdPedido = pedido.Id,
+                            NomeProduto = itemVm.NomeProduto,
+                            PrecoProduto = Convert.ToDecimal(itemVm.PrecoProduto)
+                        };
+                        db.ItensPedido.Add(item);
+                    }
                 }
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
+            // Se o ModelState não estiver válido, recarregue a lista de produtos
+            var produtos = db.Produto
+                                   .Select(p => new DTOs.ProdutoDTO
+                                   {
+                                       Id = p.Id,
+                                       Nome = p.Nome,
+                                       Preco = p.Preco
+                                   })
+                                   .ToList();
+            ViewBag.ProdutoData = produtos;
 
-            // Se algo falhar, retorne a view com os dados
             return View(model);
         }
 
