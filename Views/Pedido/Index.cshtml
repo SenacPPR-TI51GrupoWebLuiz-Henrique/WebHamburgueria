@@ -37,7 +37,6 @@
                                 <td class="align-middle">@Html.DisplayFor(modelItem => item.DataPedido)</td>
                                 <td class="align-middle" style="text-align: center;">
                                     @Html.ActionLink("Detalhes", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm me-1 action-button" })
-                                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm me-1 action-button" })
                                     @Html.ActionLink("Cancelar", "Cancel", new { id = item.Id }, new { @class = "btn btn-danger btn-sm action-button" })
                                 </td>
                             </tr>
