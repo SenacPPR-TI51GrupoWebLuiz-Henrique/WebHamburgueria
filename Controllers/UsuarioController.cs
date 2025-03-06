@@ -45,7 +45,7 @@ namespace WebHamburgueria.Models
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,NomeCompleto,NomeUsuario,Email,Cpf,Telefone,Nascimento,Genero,Endereco,Pontos,Senha,Convidado,NomeHost")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "Id,NomeCompleto,NomeUsuario,Email,Cpf,Telefone,Nascimento,Genero,Endereco,Senha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
