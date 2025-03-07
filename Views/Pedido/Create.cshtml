@@ -51,15 +51,17 @@
                                         <tr>
                                             <td>
                                                 @Html.DropDownListFor(
-                                                                                                    m => m.Itens[i].IdProduto,
-                                                                                                    new SelectList((IEnumerable<WebHamburgueria.DTOs.ProdutoDTO>)ViewBag.ProdutoData, "Id", "Nome"),
-                                                                                                    "Selecione o produto",
-                                                                                                    new { @class = "form-select nome-produto" }
-                                                                                                )
+                                                    m => m.Itens[i].IdProduto,
+                                                    new SelectList((IEnumerable<WebHamburgueria.DTOs.ProdutoDTO>)ViewBag.ProdutoData, "Id", "Nome"),
+                                                    "Selecione o produto",
+                                                    new { @class = "form-select nome-produto" }
+                                                )
                                             </td>
                                             <td>
                                                 <!-- Campo de preço que será preenchido automaticamente -->
                                                 @Html.TextBoxFor(m => m.Itens[i].PrecoProduto, new { @class = "form-control preco-produto", placeholder = "0.00", type = "number", step = "0.01" })
+
+                                                @Html.HiddenFor(m => m.Itens[i].IdProduto, new { @class = "id-produto" });
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-danger action-button" onclick="removeRow(this)">Remover</button>
@@ -112,8 +114,9 @@
         addItemButton.addEventListener('click', function() {
             let row = itensTable.insertRow();
             let produtoCell = row.insertCell(0);
-            let precoCell = row.insertCell(1);
-            let removeCell = row.insertCell(2);
+            let idCell = row.insertCell(1);
+            let precoCell = row.insertCell(2);
+            let removeCell = row.insertCell(3);
 
             // Cria o dropdown usando as opções do ViewBag convertidas em HTML
 let produtoOptions = `@Html.Raw(Json.Encode(ViewBag.ProdutoData))`;
@@ -127,7 +130,7 @@ produtos.forEach(produto => {
 selectHtml += `</select>`;
 
 produtoCell.innerHTML = selectHtml;
-
+            idCell.innerHTML = `<input class="id-produto" type="hidden" name="Itens[${rowIndex}].IdProduto" value="" />`;
             precoCell.innerHTML = `<input class="form-control preco-produto" name="Itens[${rowIndex}].PrecoProduto" placeholder="0.00" type="number" step="0.01" readonly />`;
             removeCell.innerHTML = `<button type="button" class="btn btn-danger" onclick="removeRow(this)">Remover</button>`;
 
@@ -143,8 +146,14 @@ produtoCell.innerHTML = selectHtml;
         $(document).on('change', '.nome-produto', function() {
             // Obtenha o id do produto selecionado
             let selectedProductId = $(this).val();
+
+            let id = $(this).find(":selected").attr("value") || 0;
+
             // Encontre o produto correspondente no dropdown (já que o SelectList não envia o preço diretamente)
             let preco = $(this).find(":selected").attr("data-preco") || 0;
+
+            $(this).closest('tr').find('.id-produto').val(id);
+
             // Preencha o campo de preço na mesma linha
             $(this).closest('tr').find('.preco-produto').val(preco);
         });

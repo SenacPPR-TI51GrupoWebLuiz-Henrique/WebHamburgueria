@@ -27,12 +27,9 @@ namespace WebHamburgueria.Models
     
         public virtual DbSet<Administrador> Administrador { get; set; }
         public virtual DbSet<ItensPedido> ItensPedido { get; set; }
-        public virtual DbSet<ItensSacola> ItensSacola { get; set; }
         public virtual DbSet<Pedido> Pedido { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
-        public virtual DbSet<Sacola> Sacola { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
-
-        public System.Data.Entity.DbSet<WebHamburgueria.ViewModels.LoginViewModel> LoginViewModels { get; set; }
     }
 }

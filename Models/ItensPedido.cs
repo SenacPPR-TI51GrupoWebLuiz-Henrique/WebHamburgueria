@@ -16,9 +16,9 @@ namespace WebHamburgueria.Models
     {
         public int Id { get; set; }
         public int IdPedido { get; set; }
-        public int IdProduto { get; set; }
         public string NomeProduto { get; set; }
         public decimal PrecoProduto { get; set; }
+        public Nullable<int> IdProduto { get; set; }
     
         public virtual Pedido Pedido { get; set; }
     }

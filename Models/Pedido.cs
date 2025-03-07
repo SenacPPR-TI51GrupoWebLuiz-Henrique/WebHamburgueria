@@ -10,12 +10,7 @@
 namespace WebHamburgueria.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
-    using System.Web;
-    using System.Runtime.Serialization;
-    using System.ComponentModel;
-    using System.Resources;
     
     public partial class Pedido
     {
@@ -26,15 +21,11 @@ namespace WebHamburgueria.Models
         }
     
         public int Id { get; set; }
-        [Display(Name = "CPF do Usuário")]
         public string CpfUsuario { get; set; }
-        [Display(Name = "Método de Pagamento")]
-        public string MetPag { get; set; }
-        public string Status { get; set; }
-        [DataType(DataType.Currency)]
         public decimal Total { get; set; }
-        [Display(Name = "Data do Pedido")]
         public System.DateTime DataPedido { get; set; }
+        public string Status { get; set; }
+        public string MetPag { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItensPedido> ItensPedido { get; set; }

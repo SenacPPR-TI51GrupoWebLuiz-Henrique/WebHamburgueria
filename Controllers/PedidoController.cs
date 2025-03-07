@@ -83,6 +83,7 @@ namespace WebHamburgueria.Controllers
 
                 // Salve o Pedido
                 db.Pedido.Add(pedido);
+                db.SaveChanges();
 
                 // Salve os Itens
                 foreach (var itemVm in model.Itens)
@@ -93,8 +94,9 @@ namespace WebHamburgueria.Controllers
                         var item = new ItensPedido
                         {
                             IdPedido = pedido.Id,
-                            NomeProduto = itemVm.NomeProduto,
-                            PrecoProduto = Convert.ToDecimal(itemVm.PrecoProduto)
+                            IdProduto = produto.Id,
+                            NomeProduto = produto.Nome,
+                            PrecoProduto = Convert.ToDecimal(produto.Preco)
                         };
                         db.ItensPedido.Add(item);
                     }

@@ -4,16 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="54a12308d762405780dbc75cfa966805" Name="Diagram1">
-        <EntityTypeShape EntityType="dbhamburgueriaModel.Administrador" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbhamburgueriaModel.ItensPedido" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbhamburgueriaModel.ItensSacola" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbhamburgueriaModel.Pedido" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbhamburgueriaModel.Produto" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbhamburgueriaModel.Sacola" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbhamburgueriaModel.Usuario" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="dbhamburgueriaModel.FK_ItensPedido_Pedido" ManuallyRouted="false" />
-        <AssociationConnector Association="dbhamburgueriaModel.FK_ItensSacola_Sacola" ManuallyRouted="false" />
+      <Diagram DiagramId="54a12308d762405780dbc75cfa966805" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="dbhamburgueriaModel.Administrador" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="dbhamburgueriaModel.ItensPedido" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="dbhamburgueriaModel.Pedido" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="dbhamburgueriaModel.Produto" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="dbhamburgueriaModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="dbhamburgueriaModel.Usuario" Width="1.5" PointX="6.75" PointY="0.75" />
+        <AssociationConnector Association="dbhamburgueriaModel.FK_ItensPedido_Pedido" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
