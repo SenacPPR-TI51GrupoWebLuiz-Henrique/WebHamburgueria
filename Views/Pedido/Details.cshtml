@@ -1,58 +1,79 @@
 ﻿@model WebHamburgueria.Models.Pedido
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes do Pedido";
 }
 
-<h2>Details</h2>
+<section style="padding-bottom: 1em;">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="card shadow-lg" style="width: 650px; border-radius: 1rem;">
+            <!-- Cabeçalho do Card -->
+            <div class="card-header bg-primary text-white text-center" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
+                <h3 class="card-title mb-0">Detalhes do Pedido</h3>
+            </div>
 
-<div>
-    <h4>Pedido</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CpfUsuario)
-        </dt>
+            <!-- Corpo do Card com Dados do Pedido -->
+            <div class="card-body p-5">
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Id): </strong>
+                    <span>@Html.DisplayFor(model => model.Id)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.CpfUsuario): </strong>
+                    <span>@Html.DisplayFor(model => model.CpfUsuario)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Total): </strong>
+                    <span>@Html.DisplayFor(model => model.Total)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.DataPedido): </strong>
+                    <span>@Html.DisplayFor(model => model.DataPedido)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Status): </strong>
+                    <span>@(Model.Status == "A" ? "Andamento" : Model.Status == "F" ? "Finalizado" : Model.Status == "C" ? "Cancelado" : "Tipo Inválido")</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.MetPag): </strong>
+                    <span>@(Model.MetPag == "R" ? "Dinheiro" : Model.MetPag == "P" ? "Pix" : Model.MetPag == "C" ? "Crédito" : Model.MetPag == "D" ? "Débito" : "Tipo Inválido")</span>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.CpfUsuario)
-        </dd>
+                <!-- Seção para exibir os Itens do Pedido em formato de cards -->
+                <h4 class="mt-4">Itens do Pedido</h4>
+                @if (Model.ItensPedido != null && Model.ItensPedido.Any())
+                {
+                    <div class="row">
+                        @foreach (var item in Model.ItensPedido)
+                        {
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@item.NomeProduto</h5>
+                                        <p class="card-text">
+                                            
+                                            @*<strong>Preço:</strong> @item.PrecoProduto.ToString("C")<br />*@
+                                            @*<strong>Ingredientes:</strong> @item.Ingredientes*@
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p>Nenhum item encontrado para este pedido.</p>
+                }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MetPag)
-        </dt>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.MetPag)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Total)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Total)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DataPedido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DataPedido)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <!-- Rodapé do Card -->
+            <div class="card-footer text-center">
+                <a href="@Url.Action("Finish", "Pedido", new { id = Model.Id })" class="btn btn-success me-2">Finalizar</a>
+                <a href="@Url.Action("Cancel", "Pedido", new { id = Model.Id })" class="btn btn-danger me-2">Cancelar</a>
+                <a href="@Url.Action("Index", "Pedido")" class="btn btn-secondary">Voltar para Lista</a>
+            </div>
+        </div>
+    </div>
+</section>

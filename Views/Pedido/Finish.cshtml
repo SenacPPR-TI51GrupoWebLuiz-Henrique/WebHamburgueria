@@ -1,0 +1,54 @@
+﻿@model WebHamburgueria.Models.Pedido
+
+@{
+    ViewBag.Title = "Finalizar Pedido - ";
+}
+
+<section class="d-flex align-items-center" style="padding-bottom: 1em;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg" style="border-radius: 1rem;">
+                    <!-- Cabeçalho -->
+                    <div class="card-header bg-success text-white text-center" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
+                        <h3 class="card-title mb-0">Finalizar</h3>
+                    </div>
+                    <!-- Corpo do Card -->
+                    <div class="card-body">
+                        <p class="text-center fw-bold">Finalizar este pedido?</p>
+                        <hr />
+                        <div class="mb-3">
+                            <strong>@Html.DisplayNameFor(model => model.Id):</strong>
+                            <p>@Html.DisplayFor(model => model.Id)</p>
+                        </div>
+                        <div class="mb-3">
+                            <strong>@Html.DisplayNameFor(model => model.CpfUsuario):</strong>
+                            <p>@Html.DisplayFor(model => model.CpfUsuario)</p>
+                        </div>
+                        <div class="mb-3">
+                            <strong>@Html.DisplayNameFor(model => model.Status):</strong>
+                            <p>@(Model.Status == "A" ? "Andamento" : Model.Status == "F" ? "Finalizado" : Model.Status == "C" ? "Cancelado" : "Tipo Inválido")</p>
+                        </div>
+                        <div class="mb-3">
+                            <strong>@Html.DisplayNameFor(model => model.MetPag):</strong>
+                            <p>@(Model.MetPag == "R" ? "Dinheiro" : Model.MetPag == "P" ? "Pix" : Model.MetPag == "D" ? "Débito" : Model.MetPag == "C" ? "Crédito" : "Tipo Inválido")</p>
+                        </div>
+                        <div class="mb-3">
+                            <strong>@Html.DisplayNameFor(model => model.DataPedido):</strong>
+                            <p>@Html.DisplayFor(model => model.DataPedido)</p>
+                        </div>
+                    </div>
+                    <!-- Rodapé com Botões -->
+                    <div class="card-footer text-center">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-success me-2">Finalizar</button>
+                            @Html.ActionLink("Voltar para Lista", "Index", null, new { @class = "btn btn-secondary" })
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
