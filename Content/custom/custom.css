@@ -1,0 +1,11 @@
+﻿/* Quando o tema for claro */
+[data-bs-theme="light"] 
+.github-icon {
+    color: #24292f; 
+}
+
+/* Quando o tema for escuro */
+[data-bs-theme="dark"] 
+.github-icon {
+    color: #ffffff; 
+}
