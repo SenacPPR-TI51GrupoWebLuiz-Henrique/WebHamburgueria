@@ -1,1 +1,6 @@
-INSERT INTO [dbo].[Pedido]([CpfUsuario], [Status], [MetPag], [Total]) VALUES ('', 'A', 'R', 999.99)
+--INSERT INTO [dbo].[]([], []) VALUES (, )
+--GO
+
+--DELETE [dbo].[] 
+--	WHERE [] = ''
+--GO
