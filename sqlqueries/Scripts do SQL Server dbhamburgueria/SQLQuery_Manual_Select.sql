@@ -1,2 +1,2 @@
-SELECT * FROM ItensPedido
-SELECT * FROM Pedido
+--SELECT * FROM [dbo].[]
+--GO

@@ -34,15 +34,21 @@
           <AssociatedConnUserName />
           <FullPath>SQLQuery_Create_dbhamburgueria-luiznbwin7.sql</FullPath>
         </FileNode>
+        <FileNode Name="SQLQuery_Manual_Alter.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LUIZ-PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LUIZ-PC</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery_Manual_Alter.sql</FullPath>
+        </FileNode>
         <FileNode Name="SQLQuery_Manual_Insert.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LUIZ-PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LUIZ-PC</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>SQLQuery_Manual_Insert.sql</FullPath>
         </FileNode>
         <FileNode Name="SQLQuery_Manual_Select.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LUIZ-PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LUIZ-PC</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>SQLQuery_Manual_Select.sql</FullPath>
         </FileNode>

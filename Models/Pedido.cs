@@ -10,6 +10,7 @@
 namespace WebHamburgueria.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     
     public partial class Pedido
@@ -19,12 +20,18 @@ namespace WebHamburgueria.Models
         {
             this.ItensPedido = new HashSet<ItensPedido>();
         }
-    
+
+        [Display(Name = "ID")]
         public int Id { get; set; }
+        [Display(Name = "CPF do Usuário")]
         public string CpfUsuario { get; set; }
+        [Display(Name = "Total")]
+        [DataType(DataType.Currency)]
         public decimal Total { get; set; }
+        [Display(Name = "Data do Pedido")]
         public System.DateTime DataPedido { get; set; }
         public string Status { get; set; }
+        [Display(Name = "Método de Pagamento")]
         public string MetPag { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -10,12 +10,15 @@
 namespace WebHamburgueria.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     
     public partial class Administrador
     {
+        [Display(Name = "ID")]
         public int Id { get; set; }
         public string Nome { get; set; }
+        [Display(Name = "CPF")]
         public string Cpf { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }

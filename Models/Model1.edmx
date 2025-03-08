@@ -21,9 +21,9 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdPedido" Type="int" Nullable="false" />
+          <Property Name="IdProduto" Type="int" Nullable="false" />
           <Property Name="NomeProduto" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PrecoProduto" Type="decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="IdProduto" Type="int" />
         </EntityType>
         <EntityType Name="Pedido">
           <Key>
@@ -132,9 +132,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdPedido" Type="Int32" Nullable="false" />
+          <Property Name="IdProduto" Type="Int32" Nullable="false" />
           <Property Name="NomeProduto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PrecoProduto" Type="Decimal" Nullable="false" Precision="5" Scale="2" />
-          <Property Name="IdProduto" Type="Int32" />
           <NavigationProperty Name="Pedido" Relationship="dbhamburgueriaModel.FK_ItensPedido_Pedido" FromRole="ItensPedido" ToRole="Pedido" />
         </EntityType>
         <EntityType Name="Pedido">
@@ -221,9 +221,9 @@
           <EntitySetMapping Name="ItensPedido">
             <EntityTypeMapping TypeName="dbhamburgueriaModel.ItensPedido">
               <MappingFragment StoreEntitySet="ItensPedido">
-                <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
                 <ScalarProperty Name="PrecoProduto" ColumnName="PrecoProduto" />
                 <ScalarProperty Name="NomeProduto" ColumnName="NomeProduto" />
+                <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
                 <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
