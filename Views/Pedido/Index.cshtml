@@ -1,14 +1,125 @@
 ﻿@model IEnumerable<WebHamburgueria.Models.Pedido>
 
 @{
-    ViewBag.Title = "Pedidos - ";
+    ViewBag.Title = "Pedidos";
+
+    // Agrupar os pedidos por status
+    var andamento = Model.Where(p => p.Status == "A").ToList();
+    var andamentoHoje = Model.Where(p => p.DataPedido >= DateTime.Today).ToList();
+    var finalizado = Model.Where(p => p.Status == "F").ToList();
+    var finalizadoHoje = Model.Where(p => p.DataPedido >= DateTime.Today).ToList();
+    var cancelado = Model.Where(p => p.Status == "C").ToList();
+    var canceladoHoje = Model.Where(p => p.DataPedido >= DateTime.Today).ToList();
 }
+
+<div class="container my-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Pedidos de Hoje</h2>
+        @Html.ActionLink("Criar Novo", "Create", null, new { @class = "btn btn-outline-primary" })
+    </div>
+
+    @*<h2 class="mb-4">Pedidos de Hoje</h2>*@
+
+    <div class="row">
+        <!-- Coluna Andamento -->
+        <div class="col-md-4">
+            <div class="kanban-column">
+                <div class="kanban-header bg-primary text-white p-2 rounded-top">
+                    Andamento (@andamento.Count)
+                </div>
+                <div class="kanban-body p-2">
+                    @foreach (var pedido in andamento)
+                    {
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Pedido #@pedido.Id</h5>
+                                <p class="card-text">
+                                    Total: @pedido.Total.ToString("C")<br />
+                                    Hora: @pedido.DataPedido.ToShortTimeString()
+                                </p>
+                                <a href="@Url.Action("Details", "Pedido", new { id = pedido.Id })" class="btn btn-sm btn-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- Coluna Finalizado -->
+        <div class="col-md-4">
+            <div class="kanban-column">
+                <div class="kanban-header bg-success text-white p-2 rounded-top">
+                    Finalizado (@finalizado.Count)
+                </div>
+                <div class="kanban-body p-2">
+                    @foreach (var pedido in finalizado)
+                    {
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Pedido #@pedido.Id</h5>
+                                <p class="card-text">
+                                    Total: @pedido.Total.ToString("C")<br />
+                                    Hora: @pedido.DataPedido.ToShortTimeString()
+                                </p>
+                                <a href="@Url.Action("Details", "Pedido", new { id = pedido.Id })" class="btn btn-sm btn-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- Coluna Cancelado -->
+        <div class="col-md-4">
+            <div class="kanban-column">
+                <div class="kanban-header bg-danger text-white p-2 rounded-top">
+                    Cancelado (@cancelado.Count)
+                </div>
+                <div class="kanban-body p-2">
+                    @foreach (var pedido in cancelado)
+                    {
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <h5 class="card-title">Pedido #@pedido.Id</h5>
+                                <p class="card-text">
+                                    Total: @pedido.Total.ToString("C")<br />
+                                    Hora: @pedido.DataPedido.ToShortTimeString()
+                                </p>
+                                <a href="@Url.Action("Details", "Pedido", new { id = pedido.Id })" class="btn btn-sm btn-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Estilos para o Kanban */
+    .kanban-column {
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+        background-color: #f8f9fa;
+        margin-bottom: 1em;
+    }
+
+    .kanban-header {
+        font-weight: bold;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .kanban-body {
+        /* Define um tamanho mínimo e permite rolagem vertical se necessário */
+        min-height: 300px;
+        max-height: 600px;
+        overflow-y: auto;
+    }
+</style>
 
 <div class="container my-5" style="padding-bottom: 1em;">
     <!-- Cabeçalho com título e botão "Criar Novo" -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold">Pedidos</h2>
-        @Html.ActionLink("Criar Novo", "Create", null, new { @class = "btn btn-outline-primary" })
+        <h2 class="fw-bold">Todos os Pedidos</h2>
     </div>
 
     <!-- Card que envolve a tabela -->

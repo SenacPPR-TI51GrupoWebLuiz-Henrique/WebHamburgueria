@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -78,7 +79,7 @@ namespace WebHamburgueria.Controllers
                     MetPag = model.MetPag,
                     // Se você quiser calcular o Total automaticamente,
                     // some os PrecoProduto dos itens:
-                    Total = model.Itens.Sum(i => Convert.ToDecimal(i.PrecoProduto))
+                    Total = model.Itens.Sum(i => Convert.ToDecimal(i.PrecoProduto, new CultureInfo("en-US")))
                 };
 
                 // Salve o Pedido
@@ -96,7 +97,7 @@ namespace WebHamburgueria.Controllers
                             IdPedido = pedido.Id,
                             IdProduto = produto.Id,
                             NomeProduto = produto.Nome,
-                            PrecoProduto = Convert.ToDecimal(produto.Preco)
+                            PrecoProduto = produto.Preco
                         };
                         db.ItensPedido.Add(item);
                     }
@@ -157,6 +158,41 @@ namespace WebHamburgueria.Controllers
                 return RedirectToAction("Index");
             }
             return View(pedido);
+        }
+
+        // GET: Pedido/Edit/5
+        public ActionResult Finish(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Pedido pedido = db.Pedido.Find(id);
+            if (pedido == null)
+            {
+                return HttpNotFound();
+            }
+            return View(pedido);
+        }
+
+        // POST: Pedido/Edit/5
+        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
+        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Finish([Bind(Include = "Id,Status")] PedidoViewModel pedidovm)
+        {
+            var pedido = db.Pedido.Find(pedidovm.Id);
+
+            pedido.Status = "F";
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(pedido).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(pedidovm);
         }
 
         // GET: Pedido/Edit/5
