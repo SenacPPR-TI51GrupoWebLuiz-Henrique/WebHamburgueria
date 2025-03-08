@@ -19,7 +19,7 @@ namespace WebHamburgueria.Models
         public int Id { get; set; }
         [Display(Name = "Nome Completo")]
         public string NomeCompleto { get; set; }
-        [Display(Name = "Nome de Usuário")]
+        [Display(Name = "Nome de UsuÃ¡rio")]
         public string NomeUsuario { get; set; }
         public string Email { get; set; }
         [Display(Name = "CPF")]
@@ -27,8 +27,9 @@ namespace WebHamburgueria.Models
         public string Telefone { get; set; }
         [Display(Name = "Data de Nascimento")]
         public Nullable<System.DateTime> Nascimento { get; set; }
-        [Display(Name = "Gênero")]
+        [Display(Name = "GÃªnero")]
         public string Genero { get; set; }
+        [Display(Name = "EndereÃ§o")]
         public string Endereco { get; set; }
         public Nullable<int> Pontos { get; set; }
         public string Senha { get; set; }
