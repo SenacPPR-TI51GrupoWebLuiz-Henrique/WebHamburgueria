@@ -10,15 +10,22 @@
 namespace WebHamburgueria.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     
     public partial class ItensPedido
     {
+        [Display(Name = "ID")]
         public int Id { get; set; }
+        [Display(Name = "ID do Pedido")]
         public int IdPedido { get; set; }
+        [Display(Name = "ID do Produto")]
+        public int IdProduto { get; set; }
+        [Display(Name = "Nome do Produto")]
         public string NomeProduto { get; set; }
+        [Display(Name = "Preço do Produto")]
+        [DataType(DataType.Currency)]
         public decimal PrecoProduto { get; set; }
-        public Nullable<int> IdProduto { get; set; }
     
         public virtual Pedido Pedido { get; set; }
     }

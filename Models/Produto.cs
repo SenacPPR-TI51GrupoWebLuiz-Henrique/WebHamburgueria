@@ -10,13 +10,18 @@
 namespace WebHamburgueria.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     
     public partial class Produto
     {
+        [Display(Name = "ID")]
         public int Id { get; set; }
         public string Nome { get; set; }
+        [Display(Name = "Preço")]
+        [DataType(DataType.Currency)]
         public decimal Preco { get; set; }
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
         public string Ingredientes { get; set; }
         public byte[] Foto { get; set; }
