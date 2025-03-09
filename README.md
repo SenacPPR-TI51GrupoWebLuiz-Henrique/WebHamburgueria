@@ -52,10 +52,10 @@ git clone https://github.com/SenacPPR-TI51GrupoWebLuiz-Henrique/WebHamburgueria.
   -	Erro 404 ao acessar páginas: Verifique se as rotas estão configuradas corretamente no RouteConfig (ou MapControllerRoute no .NET Core).
   -	Problemas de Layout: Confirme se as referências ao CSS do Bootstrap e aos scripts estão corretas.
 ## 7. Contato e Suporte
--	Responsáveis: 
-  -	Luiz H D Alecrim (163210265+Lu1zH3nr1qu3DA@users.noreply.github.com)
-  -	HenriqueSF1 (163210265+Lu1zH3nr1qu3DA@users.noreply.github.com)
--	GitHub Issues: Repositório no GitHub para relatar bugs e enviar sugestões.
+  -	Responsáveis: 
+    -	Luiz H D Alecrim (163210265+Lu1zH3nr1qu3DA@users.noreply.github.com)
+    -	HenriqueSF1 (163210265+Lu1zH3nr1qu3DA@users.noreply.github.com)
+  -	GitHub Issues: Repositório no GitHub para relatar bugs e enviar sugestões.
 
 <!--
   ## Sobre o projeto
