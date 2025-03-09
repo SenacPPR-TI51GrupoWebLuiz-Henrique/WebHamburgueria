@@ -20,11 +20,14 @@ Atualmente, o projeto está em desenvolvimento, então a ocorrência de erros, b
 ## Funcionalidades
 
 - **Cadastro de Clientes**: Permite o cadastro de novos clientes.
+- **Realização de Pedidos**: Os atendentes realizam os pedidos (futuramente essa função estará disponível aos usuários para que possam realizar seus pedidos online).
+
+<!--
 - **Realização de Pedidos**: Os clientes podem realizar pedidos online.
 - **Gerenciamento de Pedidos**: Os funcionários podem visualizar e gerenciar os pedidos realizados.
-<!--
 - **Relatórios**: Geração de relatórios de vendas.
 -->
+
 ## Instalação
 
 ### Pré-requisitos
