@@ -21,6 +21,7 @@ Atualmente, o projeto está em desenvolvimento, então a ocorrência de erros, b
 
 - **Cadastro de Clientes**: Permite o cadastro de novos clientes.
 - **Realização de Pedidos**: Os atendentes realizam os pedidos (futuramente essa função estará disponível aos usuários para que possam realizar seus pedidos online).
+- **Acompanhamento dos Pedidos**: Os funcionários podem acompanhar os pedidos que estão na fila e os que já foram concluídos.
 
 <!--
 - **Realização de Pedidos**: Os clientes podem realizar pedidos online.
