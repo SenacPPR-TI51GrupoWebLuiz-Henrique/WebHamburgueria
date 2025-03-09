@@ -53,8 +53,8 @@ git clone https://github.com/SenacPPR-TI51GrupoWebLuiz-Henrique/WebHamburgueria.
   -	Problemas de Layout: Confirme se as referências ao CSS do Bootstrap e aos scripts estão corretas.
 ## 7. Contato e Suporte
   -	Responsáveis: 
-    -	Luiz H D Alecrim (163210265+Lu1zH3nr1qu3DA@users.noreply.github.com)
-    -	HenriqueSF1 (163210265+Lu1zH3nr1qu3DA@users.noreply.github.com)
+    -	[Luiz H. D. Alecrim](https://github.com/Lu1zH3nr1qu3DA)
+    -	[HenriqueSF1](https://github.com/HenriqueSF1)
   -	GitHub Issues: Repositório no GitHub para relatar bugs e enviar sugestões.
 
 <!--
