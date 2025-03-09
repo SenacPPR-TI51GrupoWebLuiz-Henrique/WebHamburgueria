@@ -1,9 +1,16 @@
 # WebHamburgueria (Code & C#eese Web)
+  ## Sobre o projeto
+  Este é o Projeto Integrador da turma TI51 do Senac de Presidente Prudente.
+  Nosso grupo tem dois integrantes: [Luiz H. D. Alecrim](https://github.com/Lu1zH3nr1qu3DA) e [HenriqueSF1](https://github.com/HenriqueSF1)
+  ## Estado atual
+  Atualmente, o projeto está em desenvolvimento, então a ocorrência de erros, bugs e features ainda não implementadas é muito alta.
+
+# Documentação
 ## 1. Visão Geral
 ### 1.1 Objetivo
-  - Este projeto consiste em um sistema web de administração de pedidos para uma hamburgueria, possibilitando gerenciar produtos, pedidos, usuários e relatórios.
+  - Este projeto consiste em um sistema web de administração de pedidos para uma hamburgueria, possibilitando gerenciar produtos, pedidos, usuários.
 ### 1.2 Escopo
-  - O sistema contempla o cadastro de produtos, usuários, realização de pedidos e emissão de relatórios básicos de vendas. Funcionalidades como integração com gateways de pagamento ou análise avançada de dados não estão inclusas nesta versão.
+  - O sistema contempla o cadastro de produtos, usuários e realização de pedidos. Funcionalidades como integração com gateways de pagamento ou análise avançada de dados não estão inclusas nesta versão.
 ### 1.3 Público-alvo
   -	Gerentes de loja, atendentes de balcão e administradores do sistema que precisam controlar e visualizar pedidos em tempo real.
 ### 1.4 Tecnologias e Ferramentas
@@ -21,7 +28,6 @@
 ### 2.2 Passo a Passo de Instalação
   1.	Clone o repositório:
 ```
-bash
 git clone https://github.com/SenacPPR-TI51GrupoWebLuiz-Henrique/WebHamburgueria.git
 ```
   2.	Abra no Visual Studio.
@@ -56,11 +62,3 @@ git clone https://github.com/SenacPPR-TI51GrupoWebLuiz-Henrique/WebHamburgueria.
     -	[Luiz H. D. Alecrim](https://github.com/Lu1zH3nr1qu3DA)
     -	[HenriqueSF1](https://github.com/HenriqueSF1)
   -	GitHub Issues: Repositório no GitHub para relatar bugs e enviar sugestões.
-
-<!--
-  ## Sobre o projeto
-  Este é o Projeto Integrador da turma TI51 do Senac de Presidente Prudente.
-  Nosso grupo tem dois integrantes: [Luiz H. D. Alecrim](https://github.com/Lu1zH3nr1qu3DA) e [HenriqueSF1](https://github.com/HenriqueSF1)
-  ## Estado atual
-  Atualmente, o projeto está em desenvolvimento, então a ocorrência de erros, bugs e features ainda não implementadas é muito alta.
--->
