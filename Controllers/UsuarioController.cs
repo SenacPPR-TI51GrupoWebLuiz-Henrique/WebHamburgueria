@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace WebHamburgueria.Models
@@ -49,6 +50,7 @@ namespace WebHamburgueria.Models
         {
             if (ModelState.IsValid)
             {
+                if (usuario.NomeHost == null) usuario.NomeHost = "";
                 db.Usuario.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
