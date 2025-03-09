@@ -60,9 +60,9 @@ No arquivo ConnectionStrings.config, seção `<connectionStrings>`, defina o nom
 ### Fluxo Principal (Exemplo: Produto)
 
 1. Login no sistema.
-2. Acesse a tela de Produtos (/Produto/Index).
-3. Crie um novo Produto clicando em “Criar Novo”.
-4. Adicione as informações do produto (nome do produto, quantidade, preço, etc.).
+2. Acesse a tela de Produtos (`/Produto/Index`).
+3. Crie um novo Produto clicando em “`Criar Novo`”.
+4. Adicione as informações do produto (nome do produto, preço, etc.).
 5. Salve o produto. O sistema armazenará no banco e retornará para a listagem de produtos.
 
 ## Dicas de Uso e Boas Práticas
@@ -92,4 +92,3 @@ Projeto Integrador - Senac Presidente Prudente - TI51
 ---
 
 **Observação**: Para visualizar todos os commits, acesse [Commits](https://github.com/SenacPPR-TI51GrupoWebLuiz-Henrique/WebHamburgueria/commits/main).
-```
