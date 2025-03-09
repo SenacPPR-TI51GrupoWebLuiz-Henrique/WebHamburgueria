@@ -1,114 +1,68 @@
 ﻿@model WebHamburgueria.Models.Usuario
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes do Usuário";
 }
 
-<h2>Details</h2>
+<section style="padding-bottom: 1em;">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="card shadow-lg" style="width: 650px; border-radius: 1rem;">
 
-<div>
-    <h4>Usuario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeCompleto)
-        </dt>
+            <!-- Cabeçalho do Card -->
+            <div class="card-header bg-primary text-white text-center" style="border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
+                <h3 class="card-title mb-0">Detalhes do Usuário</h3>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeCompleto)
-        </dd>
+            <!-- Corpo do Card -->
+            <div class="card-body p-5">
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Id): </strong>
+                    <span>@Html.DisplayFor(model => model.Id)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.NomeCompleto): </strong>
+                    <span>@Html.DisplayFor(model => model.NomeCompleto)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.NomeUsuario): </strong>
+                    <span>@Html.DisplayFor(model => model.NomeUsuario)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Cpf): </strong>
+                    <span>@Html.DisplayFor(model => model.Cpf)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Email): </strong>
+                    <span>@Html.DisplayFor(model => model.Email)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Telefone): </strong>
+                    <span>@Html.DisplayFor(model => model.Telefone)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Nascimento): </strong>
+                    <span>@Html.DisplayFor(model => model.Nascimento)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Genero): </strong>
+                    <span>@Html.DisplayFor(model => model.Genero)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Endereco): </strong>
+                    <span>@Html.DisplayFor(model => model.Endereco)</span>
+                </div>
+                <div class="mb-3">
+                    <strong>@Html.DisplayNameFor(model => model.Pontos): </strong>
+                    <span>@Html.DisplayFor(model => model.Pontos)</span>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeUsuario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NomeUsuario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cpf)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cpf)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Telefone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Telefone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nascimento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nascimento)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Genero)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Genero)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Endereco)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Endereco)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Pontos)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Pontos)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Senha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Senha)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Convidado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Convidado)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeHost)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NomeHost)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <!-- Rodapé do Card -->
+            <div class="card-footer text-center">
+                <a href="@Url.Action("Delete", "Usuario", new { id = Model.Id })" class="btn btn-primary me-2">Excluir</a>
+                <a href="@Url.Action("Edit", "Usuario", new { id = Model.Id })" class="btn btn-primary me-2">Editar</a>
+                <a href="@Url.Action("Index", "Usuario")" class="btn btn-secondary">Voltar para Lista</a>
+            </div>
+        </div>
+    </div>
+</section>

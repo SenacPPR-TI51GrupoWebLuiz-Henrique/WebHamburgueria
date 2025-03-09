@@ -31,16 +31,16 @@
                     </div>
 
                     <div class="mb-3">
-                        @Html.LabelFor(model => model.Email, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o email", maxlength = "256" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    </div>
-
-                    <div class="mb-3">
                         @Html.LabelFor(model => model.Cpf, new { @class = "form-label" })
                         <small class="text-danger">*Obrigatório</small>
                         @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o CPF", maxlength = "11" } })
                         @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Email, new { @class = "form-label" })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o email", maxlength = "256" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="mb-3">
@@ -60,8 +60,8 @@
                         @Html.DropDownListFor(model => model.Genero,
                             new List<SelectListItem>
                             {
-                                new SelectListItem { Text = "Feminino", Value = "F" },
                                 new SelectListItem { Text = "Masculino", Value = "M" },
+                                new SelectListItem { Text = "Feminino", Value = "F" },
                                 new SelectListItem { Text = "Outro", Value = "O" }
                             }, "Selecione", new { @class = "form-select" })
                         @Html.ValidationMessageFor(model => model.Genero, null, new { @class = "text-danger" })

@@ -68,7 +68,7 @@ namespace WebHamburgueria.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.CpfUsuario == null) { model.CpfUsuario = ""; };
+                if (model.CpfUsuario == null) model.CpfUsuario = "";
 
                 // Mapeie o ViewModel para as entidades do banco
                 var pedido = new Pedido
