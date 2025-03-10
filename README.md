@@ -47,13 +47,13 @@ Atualmente, o projeto está em desenvolvimento, então a ocorrência de erros, b
 2. Abra no Visual Studio.
 3. Configure a string de conexão no ConnectionStrings.config.
 4. Crie o banco de dados.
-5. Execute o projeto (F5 ou Ctrl + F5).
+5. Execute o projeto (`F5` ou `Ctrl + F5`).
 
 ## Configuração
 
 ### String de Conexão
 
-No arquivo ConnectionStrings.config, seção `<connectionStrings>`, defina o nome do servidor, banco e credenciais.
+No arquivo `ConnectionStrings.config`, seção `<connectionStrings>`, defina o nome do servidor, banco e credenciais.
 
 ## Uso e Funcionalidades
 
