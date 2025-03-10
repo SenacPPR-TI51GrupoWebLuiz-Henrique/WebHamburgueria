@@ -45,9 +45,10 @@ Atualmente, o projeto está em desenvolvimento, então a ocorrência de erros, b
    git clone https://github.com/SenacPPR-TI51GrupoWebLuiz-Henrique/WebHamburgueria.git
    ```
 2. Abra no Visual Studio.
-3. Configure a string de conexão no ConnectionStrings.config.
-4. Crie o banco de dados.
-5. Execute o projeto (`F5` ou `Ctrl + F5`).
+3. Renomeie `ConnectionStrings-template.config` para `ConnectionStrings.config`.
+4. Configure a string de conexão no `ConnectionStrings.config`.
+5. Crie o banco de dados.
+6. Execute o projeto (`F5` ou `Ctrl + F5`).
 
 ## Configuração
 
