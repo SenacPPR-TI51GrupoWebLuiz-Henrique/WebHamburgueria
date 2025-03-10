@@ -9,10 +9,13 @@ namespace WebHamburgueria.Viewmodel
 {
     public class ProdutoViewModel
     {
+        [Display(Name = "ID")]
         public int Id { get; set; }
         public string Nome { get; set; }
+        [Display(Name = "Preço")]
         [DataType(DataType.Currency)]
         public string Preco { get; set; }
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
         public string Ingredientes { get; set; }
         public byte[] Foto { get; set; }

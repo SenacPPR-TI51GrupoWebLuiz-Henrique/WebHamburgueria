@@ -25,7 +25,7 @@
         <!-- Coluna Andamento -->
         <div class="col-md-4">
             <div class="kanban-column">
-                <div class="kanban-header bg-primary text-white p-2 rounded-top">
+                <div class="kanban-header bg-primary p-2 rounded-top">
                     Andamento (@andamento.Count)
                 </div>
                 <div class="kanban-body p-2">
@@ -48,7 +48,7 @@
         <!-- Coluna Finalizado -->
         <div class="col-md-4">
             <div class="kanban-column">
-                <div class="kanban-header bg-success text-white p-2 rounded-top">
+                <div class="kanban-header bg-success p-2 rounded-top">
                     Finalizado (@finalizado.Count)
                 </div>
                 <div class="kanban-body p-2">
@@ -71,7 +71,7 @@
         <!-- Coluna Cancelado -->
         <div class="col-md-4">
             <div class="kanban-column">
-                <div class="kanban-header bg-danger text-white p-2 rounded-top">
+                <div class="kanban-header bg-danger p-2 rounded-top">
                     Cancelado (@cancelado.Count)
                 </div>
                 <div class="kanban-body p-2">
@@ -97,15 +97,14 @@
 <style>
     /* Estilos para o Kanban */
     .kanban-column {
-        border: 1px solid #dee2e6;
+        border: 1px solid;
         border-radius: 0.5rem;
-        background-color: #f8f9fa;
         margin-bottom: 1em;
     }
 
     .kanban-header {
         font-weight: bold;
-        border-bottom: 1px solid #dee2e6;
+        border-bottom: 1px solid;
     }
 
     .kanban-body {

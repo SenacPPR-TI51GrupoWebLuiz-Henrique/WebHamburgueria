@@ -19,43 +19,43 @@
 
                     <div class="mb-3">
                         @Html.LabelFor(model => model.NomeCompleto, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.NomeCompleto, new { htmlAttributes = new { id = "txt-name", @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
+                        @Html.EditorFor(model => model.NomeCompleto, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o nome completo", maxlength = "50" } })
                         @Html.ValidationMessageFor(model => model.NomeCompleto, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="mb-3">
                         @Html.LabelFor(model => model.NomeUsuario, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.NomeUsuario, new { htmlAttributes = new { id = "txt-name", @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
+                        @Html.EditorFor(model => model.NomeUsuario, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o nome de login", maxlength = "50" } })
                         @Html.ValidationMessageFor(model => model.NomeUsuario, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="mb-3">
                         @Html.LabelFor(model => model.Senha, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { id = "txt-name", @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
+                        @Html.PasswordFor(model => model.Senha, new { @class = "form-control", placeholder = "Digite a senha", maxlength = "50" })
                         @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="mb-3">
                         @Html.LabelFor(model => model.Cpf, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { id = "txt-name", @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
+                        @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
                         @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="mb-3">
                         @Html.LabelFor(model => model.Email, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { id = "txt-name", @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="mb-3">
                         @Html.LabelFor(model => model.Telefone, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { id = "txt-name", @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
+                        @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
                         @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="mb-3">
                         @Html.LabelFor(model => model.Nascimento, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.Nascimento, new { htmlAttributes = new { id = "txt-name", @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
+                        @Html.EditorFor(model => model.Nascimento, new { htmlAttributes = new { @class = "form-control", type = "date" } })
                         @Html.ValidationMessageFor(model => model.Nascimento, "", new { @class = "text-danger" })
                     </div>
 
@@ -73,7 +73,7 @@
 
                     <div class="mb-3">
                         @Html.LabelFor(model => model.Endereco, new { @class = "form-label" })
-                        @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { id = "txt-name", @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
+                        @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o nome do produto", maxlength = "50" } })
                         @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
                     </div>
 
