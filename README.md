@@ -82,7 +82,7 @@ No arquivo `ConnectionStrings.config`, seção `<connectionStrings>`, defina o n
 ## Contato e Suporte
 
 - Responsáveis:
-  - [Luiz H. D. Alecrim](https://github.com/Lu1zH3nr1qu3DA)
+  - [Luiz H D Alecrim](https://github.com/Lu1zH3nr1qu3DA)
   - [HenriqueSF1](https://github.com/HenriqueSF1)
 - GitHub Issues: Para [relatar bugs e enviar sugestões](https://github.com/SenacPPR-TI51GrupoWebLuiz-Henrique/WebHamburgueria/issues/new).
 
