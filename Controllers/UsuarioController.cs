@@ -50,6 +50,7 @@ namespace WebHamburgueria.Models
         {
             if (ModelState.IsValid)
             {
+                usuario.Pontos = 0;
                 if (usuario.NomeHost == null) usuario.NomeHost = "";
                 db.Usuario.Add(usuario);
                 db.SaveChanges();
