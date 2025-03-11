@@ -10,40 +10,32 @@
                 <!-- Card para o formulário de contato -->
                 <div class="card shadow-lg" style="border-radius: 1rem;">
                     <div class="card-body p-5">
-                        <h3 class="text-center mb-4">Fale Conosco</h3>
-                        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
-                        {
-                            @Html.AntiForgeryToken()
-
-                            <div class="form-group mb-3">
-                                @Html.Label("Nome", new { @class = "form-label" })
-                                @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Seu nome completo" })
+                        <h3 class="text-center mb-4">Contato e Suporte</h3>
+                        <div class="d-flex">
+                            <div class="card mb-4 shadow-sm">
+                                <div class="card-body">
+                                    <p>Utilize essa opção para esclarecer dúvidas gerais e obter suporte da comunidade.</p>
+                                    <a href="https://github.com/SenacPPR-TI51GrupoWebLuiz-Henrique/WebHamburgueria/discussions" target="_blank" class="btn me-2 github-icon"><i class="bi bi-github"></i> GitHub Discussions </a>
+                                </div>
                             </div>
-                            <div class="form-group mb-3">
-                                @Html.Label("Email", new { @class = "form-label" })
-                                @Html.TextBox("Email", null, new { @class = "form-control", placeholder = "Seu email" })
+                        </div>
+                        <div class="d-flex">
+                            <div class="card mb-4 shadow-sm">
+                                <div class="card-body">
+                                    <p>Se você encontrou algum bug ou problema, registre um issue para que possamos corrigi-lo.</p>
+                                    <a href="https://github.com/SenacPPR-TI51GrupoWebLuiz-Henrique/WebHamburgueria/issues" target="_blank" class="btn me-2 github-icon"><i class="bi bi-github"></i> GitHub Issues </a>
+                                </div>
                             </div>
-                            <div class="form-group mb-3">
-                                @Html.Label("Assunto", new { @class = "form-label" })
-                                @Html.TextBox("Subject", null, new { @class = "form-control", placeholder = "Assunto da mensagem" })
-                            </div>
-                            <div class="form-group mb-4">
-                                @Html.Label("Mensagem", new { @class = "form-label" })
-                                @Html.TextArea("Message", "", new { @class = "form-control", rows = "5", placeholder = "Escreva sua mensagem..." })
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary btn-lg">Enviar Mensagem</button>
-                            </div>
-                        }
+                        </div>
+                        <div class="d-flex">
+                            <p>Sua colaboração é muito importante para o aprimoramento contínuo deste projeto.</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Seção de redes sociais -->
-                <div class="text-center mt-4">
-                    <p class="mb-2">Ou entre em contato pelas redes sociais:</p>
-                    <a href="#" class="btn btn-primary me-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-info me-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="btn btn-danger"><i class="fab fa-instagram"></i></a>
-                </div>
+            <div class="text-center mt-4">
+                <p class="mb-2">Visite nosso repositório no GitHub:</p>
+                <a href="https://github.com/SenacPPR-TI51GrupoWebLuiz-Henrique/WebHamburgueria" target="_blank" class="btn me-2 github-icon"><i class="bi bi-github"></i> WebHamburgueria </a>
+            </div>
             </div>
         </div>
     </div>
