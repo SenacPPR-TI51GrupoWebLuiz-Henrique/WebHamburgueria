@@ -82,9 +82,24 @@ namespace WebHamburgueria.Controllers
                     Total = model.Itens.Sum(i => Convert.ToDecimal(i.PrecoProduto, new CultureInfo("en-US")))
                 };
 
+                
+
+
+
+
                 // Salve o Pedido
                 db.Pedido.Add(pedido);
                 db.SaveChanges();
+                
+                var usuario = db.Usuario.SingleOrDefault(o => o.Cpf == model.CpfUsuario);
+                if (usuario != null)
+                {
+                    usuario.Pontos += Convert.ToInt32(pedido.Total);
+                    db.Entry(usuario).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                //db.Entry(usuario).State = EntityState.Modified;
+                //db.SaveChanges();
 
                 // Salve os Itens
                 foreach (var itemVm in model.Itens)
@@ -218,13 +233,19 @@ namespace WebHamburgueria.Controllers
         public ActionResult Cancel([Bind(Include = "Id,Status")] PedidoViewModel pedidovm)
         {
             var pedido = db.Pedido.Find(pedidovm.Id);
-
             pedido.Status = "C";
+
+            var usuario = db.Usuario.SingleOrDefault(o => o.Cpf == pedido.CpfUsuario);
+            usuario.Pontos -= Convert.ToInt32(pedido.Total);
 
             if (ModelState.IsValid)
             {
                 db.Entry(pedido).State = EntityState.Modified;
                 db.SaveChanges();
+
+                db.Entry(usuario).State = EntityState.Modified;
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             return View(pedidovm);
