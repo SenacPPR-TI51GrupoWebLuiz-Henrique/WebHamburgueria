@@ -61,10 +61,22 @@ No arquivo `ConnectionStrings.config`, seção `<connectionStrings>`, defina o n
 ### Fluxo Principal (Exemplo: Produto)
 
 1. Login no sistema.
+
+   ![image](https://github.com/user-attachments/assets/fd248330-72dd-44f0-a694-54c3bc9c72b4)
+   
 2. Acesse a tela de Produtos (`/Produto/Index`).
+
+   ![image](https://github.com/user-attachments/assets/358061a4-40be-491e-b007-6f4d3c4e5710)
+
 3. Crie um novo Produto clicando em “`Criar Novo`”.
+
+   ![image](https://github.com/user-attachments/assets/c4258634-8c1f-4a1b-b3fd-80ca63bba16e)
+   
 4. Adicione as informações do produto (nome do produto, preço, etc.).
 5. Salve o produto. O sistema armazenará no banco e retornará para a listagem de produtos.
+
+   ![image](https://github.com/user-attachments/assets/8c18a812-a119-417c-a0ad-932ec6ac7b33)
+
 
 ## Dicas de Uso e Boas Práticas
 
