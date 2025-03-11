@@ -70,8 +70,18 @@
 
             <!-- Rodapé do Card -->
             <div class="card-footer text-center">
-                <a href="@Url.Action("Finish", "Pedido", new { id = Model.Id })" class="btn btn-success me-2">Finalizar</a>
-                <a href="@Url.Action("Cancel", "Pedido", new { id = Model.Id })" class="btn btn-danger me-2">Cancelar</a>
+                @switch (Model.Status)
+                {
+                    case "A":
+                        <a href="@Url.Action("Finish", "Pedido", new { id = Model.Id })" class="btn btn-success me-2">Finalizar</a>
+                        <a href="@Url.Action("Cancel", "Pedido", new { id = Model.Id })" class="btn btn-danger me-2">Cancelar</a>
+                        break;
+                    case "F":
+                        <a href="@Url.Action("Cancel", "Pedido", new { id = Model.Id })" class="btn btn-danger me-2">Cancelar</a>
+                        break;
+                    default:
+                    break;
+                }
                 <a href="@Url.Action("Index", "Pedido")" class="btn btn-secondary">Voltar para Lista</a>
             </div>
         </div>
