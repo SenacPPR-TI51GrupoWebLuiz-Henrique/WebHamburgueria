@@ -68,6 +68,7 @@ namespace WebHamburgueria.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Se o CPF do usuário for nulo, defina-o como uma string vazia
                 if (model.CpfUsuario == null) model.CpfUsuario = "";
 
                 // Mapeie o ViewModel para as entidades do banco
@@ -82,15 +83,11 @@ namespace WebHamburgueria.Controllers
                     Total = model.Itens.Sum(i => Convert.ToDecimal(i.PrecoProduto, new CultureInfo("en-US")))
                 };
 
-                
-
-
-
-
                 // Salve o Pedido
                 db.Pedido.Add(pedido);
                 db.SaveChanges();
-                
+
+                // Adicione os pontos ao usuário
                 var usuario = db.Usuario.SingleOrDefault(o => o.Cpf == model.CpfUsuario);
                 if (usuario != null)
                 {
@@ -98,8 +95,6 @@ namespace WebHamburgueria.Controllers
                     db.Entry(usuario).State = EntityState.Modified;
                     db.SaveChanges();
                 }
-                //db.Entry(usuario).State = EntityState.Modified;
-                //db.SaveChanges();
 
                 // Salve os Itens
                 foreach (var itemVm in model.Itens)
@@ -121,6 +116,7 @@ namespace WebHamburgueria.Controllers
 
                 return RedirectToAction("Index");
             }
+
             // Se o ModelState não estiver válido, recarregue a lista de produtos
             var produtos = db.Produto
                                    .Select(p => new DTOs.ProdutoDTO
@@ -236,7 +232,10 @@ namespace WebHamburgueria.Controllers
             pedido.Status = "C";
 
             var usuario = db.Usuario.SingleOrDefault(o => o.Cpf == pedido.CpfUsuario);
-            usuario.Pontos -= Convert.ToInt32(pedido.Total);
+            if (usuario != null && usuario.Pontos > 0)
+            {
+                usuario.Pontos -= Convert.ToInt32(pedido.Total);
+            }
 
             if (ModelState.IsValid)
             {
