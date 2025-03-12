@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Ocorreu um Erro";
+}
+
+<section class="vh-100 d-flex align-items-center" style="background: linear-gradient(135deg, #f44336, #e57373);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <p class="lead">Desculpe, ocorreu um erro inesperado.</p>
+                        <p>Estamos trabalhando para resolver o problema o mais rápido possível.</p>
+                        <small>Código do Erro: ERR_@ViewBag.ErrorCode</small>
+                        <hr />
+                        <p>Por favor, tente novamente mais tarde ou entre em contato com o suporte se o problema persistir.</p>
+                        <br />
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-light">Voltar para a Página Inicial</a>
+                        <br />
+                        <br />
+                        <a href="@Url.Action("Contact", "Home")" class="btn btn-light">Entrar em Contato</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
