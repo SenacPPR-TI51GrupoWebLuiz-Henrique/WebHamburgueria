@@ -37,33 +37,31 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <section>
-            <div class="container d-flex justify-content-center align-items-center" style="padding-top: 4em; padding-bottom: 1em;">
-                <div class="card p-4 shadow" style="max-width: 400px; border: none; border-radius: 1rem;">
-                    <div class="card shadow-lg" style="border-radius: 1rem;">
-                        <div class="card-body p-5">
-                            <h3 class="card-title text-center mb-4">Admin Login</h3>
-                            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-                            {
-                                <div class="mb-3">
-                                    @Html.LabelFor(model => model.Login, new { @class = "form-label" })
-                                    @Html.TextBoxFor(model => model.Login, new { @class = "form-control", placeholder = "Digite seu login" })
-                                    @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="mb-3">
-                                    @Html.LabelFor(model => model.Password, new { @class = "form-label" })
-                                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Digite sua senha" })
-                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Entrar</button>
-                                </div>
-                            }
+    <section>
+        <div class="container d-flex justify-content-center align-items-center" style="padding-top: 4em; padding-bottom: 1em;">
+            <div class="card shadow-lg" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+                    <h3 class="card-title text-center mb-4">Admin Login</h3>
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.Login, new { @class = "form-label" })
+                            @Html.TextBoxFor(model => model.Login, new { @class = "form-control", placeholder = "Digite seu login" })
+                            @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
                         </div>
-                    </div>    
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.Password, new { @class = "form-label" })
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Digite sua senha" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Entrar</button>
+                        </div>
+                    }
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
         <footer class="mt-auto bg-body text-body" style="min-height: 5em;">
             <div class="container">
                 <div class="row">
