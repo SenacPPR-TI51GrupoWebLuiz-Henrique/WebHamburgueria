@@ -361,4 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+
 /ConnectionStrings.config
+Scripts do SQL Server dbhamburgueria/
