@@ -27,6 +27,7 @@ GO
 CREATE TABLE [dbo].[ItensPedido](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[IdPedido] [int] NOT NULL,
+	[IdProduto] [int] NOT NULL,
 	[NomeProduto] [varchar](50) NOT NULL,
 	[PrecoProduto] [decimal](5, 2) NOT NULL,
  CONSTRAINT [PK_ItensPedido] PRIMARY KEY CLUSTERED 
