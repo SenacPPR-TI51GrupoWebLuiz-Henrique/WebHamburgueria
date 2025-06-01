@@ -3,7 +3,22 @@
   <Items>
     <LogicalFolder Name="Conexões" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="LUIZ-PC:Luiz-PC\Luiz H. D. Alecrim">
+        <ConnectionNode Name="LUIZ-NB-WIN7:Luiz-NB-Win7\Luiz">
+          <Created>2025-06-01T15:56:39.9957664-03:00</Created>
+          <Type>SQL</Type>
+          <Server>LUIZ-NB-WIN7</Server>
+          <UserName />
+          <Authentication>Autenticação do Windows</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Consulta</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="LUIZ-PC:Luiz-NB-Win7\Luiz">
           <Created>2025-03-08T16:09:02.7112975-03:00</Created>
           <Type>SQL</Type>
           <Server>LUIZ-PC</Server>
@@ -29,8 +44,8 @@
           <FullPath>SQLQuery_Create_dbhamburgueria.sql</FullPath>
         </FileNode>
         <FileNode Name="SQLQuery_Create_dbhamburgueria-luiznbwin7.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LUIZ-PC:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>LUIZ-PC</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:LUIZ-NB-WIN7:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>LUIZ-NB-WIN7</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>SQLQuery_Create_dbhamburgueria-luiznbwin7.sql</FullPath>
         </FileNode>
