@@ -18,6 +18,7 @@ namespace WebHamburgueria.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(LoginViewModel dados)
         {
             string login = dados.Login;
@@ -48,6 +49,7 @@ namespace WebHamburgueria.Controllers
 
         // POST: Login/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -68,6 +70,7 @@ namespace WebHamburgueria.Controllers
 
         // POST: Login/Edit/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -88,6 +91,7 @@ namespace WebHamburgueria.Controllers
 
         // POST: Login/Delete/5
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
