@@ -19,6 +19,7 @@ namespace WebHamburgueria
         }
         protected void Application_BeginRequest()
         {
+            HttpContext.Current.Response.AddHeader("X-Frame-Options", "DENY");
             var cultura = new System.Globalization.CultureInfo("pt-BR");
             System.Threading.Thread.CurrentThread.CurrentCulture = cultura;
             System.Threading.Thread.CurrentThread.CurrentUICulture = cultura;
