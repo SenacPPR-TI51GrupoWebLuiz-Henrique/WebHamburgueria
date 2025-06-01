@@ -364,4 +364,4 @@ FodyWeavers.xsd
 
 
 /ConnectionStrings.config
-dbhamburgueriaScripts/
+sqlqueries/dbhamburgueriaScripts/
