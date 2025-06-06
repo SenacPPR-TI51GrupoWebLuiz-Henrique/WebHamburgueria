@@ -48,15 +48,18 @@ namespace WebHamburgueria.Models
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,NomeCompleto,NomeUsuario,Email,Cpf,Telefone,Nascimento,Genero,Endereco,Senha")] Usuario usuario)
         {
+            if (usuario.Nascimento > (DateTime)System.Data.SqlTypes.SqlDateTime.MaxValue || usuario.Nascimento < (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue)
+            {
+                ModelState.AddModelError(nameof(usuario.Nascimento), "Data inválida.");
+            }
             if (ModelState.IsValid)
             {
                 usuario.Pontos = 0;
-                if (usuario.NomeHost == null) usuario.NomeHost = "";
+                if (usuario.NomeHost == null) usuario.NomeHost = "NaT";    // Host não é um terminal (Not a Terminal (NaT))
                 db.Usuario.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(usuario);
         }
 
@@ -82,10 +85,18 @@ namespace WebHamburgueria.Models
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,NomeCompleto,NomeUsuario,Email,Cpf,Telefone,Nascimento,Genero,Endereco,Pontos,Senha,Convidado,NomeHost")] Usuario usuario)
         {
+            if (usuario.Nascimento > (DateTime)System.Data.SqlTypes.SqlDateTime.MaxValue || usuario.Nascimento < (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue)
+            {
+                ModelState.AddModelError(nameof(usuario.Nascimento), "Data inválida.");
+            }
             if (ModelState.IsValid)
             {
+                if (usuario.NomeHost == null) usuario.NomeHost = "NaT";    // Host não é um terminal (Not a Terminal (NaT))
+                if (usuario.Pontos == null) usuario.Pontos = 0;
+
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             return View(usuario);
