@@ -254,6 +254,7 @@
     <Content Include="ConnectionStrings.config" />
     <Content Include="Content\bootswatch\zephyr\_bootswatch.scss" />
     <Content Include="Content\bootswatch\zephyr\_variables.scss" />
+    <Content Include="ConnectionStrings-template.config" />
     <None Include="Properties\PublishProfiles\codeandcheese - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -266,11 +267,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="sqlqueries\dbhamburgueriaScripts\SQLQuery_Create_dbhamburgueria-luiznbwin7.sql" />
-    <Content Include="sqlqueries\dbhamburgueriaScripts\SQLQuery_Create_dbhamburgueria.sql" />
-    <Content Include="sqlqueries\dbhamburgueriaScripts\SQLQuery_Manual_Alter.sql" />
-    <Content Include="sqlqueries\dbhamburgueriaScripts\SQLQuery_Manual_Insert.sql" />
-    <Content Include="sqlqueries\dbhamburgueriaScripts\SQLQuery_Manual_Select.sql" />
     <Content Include="sqlqueries\SQLQuery_Create_dbhamburgueria.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -312,8 +308,8 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\ServerError.cshtml" />
-    <Content Include="sqlqueries\dbhamburgueriaScripts\dbhamburgueriaScripts.ssmssln" />
-    <Content Include="sqlqueries\dbhamburgueriaScripts\dbhamburgueriaScripts.ssmssqlproj" />
+    <Content Include="sqlqueries\WebHamburgueria_sqlqueries.ssmssln" />
+    <Content Include="sqlqueries\WebHamburgueria_sqlqueries.ssmssqlproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
